@@ -1,0 +1,15 @@
+{
+  "names": {
+    "vera": "7b1d521f3ce560614aedfbf4ce684f2f9395358de03b0bcda89a2b16a964a224",
+    "_": "7b1d521f3ce560614aedfbf4ce684f2f9395358de03b0bcda89a2b16a964a224"
+  },
+  "relays": {
+    "7b1d521f3ce560614aedfbf4ce684f2f9395358de03b0bcda89a2b16a964a224": [
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://relay.primal.net",
+      "wss://relay.nostr.band",
+      "wss://nostr.mom"
+    ]
+  }
+}
