@@ -9,12 +9,12 @@
   "note": "The endpoint below is a tunnel out of the machine this agent runs on: it is up when the agent is. This file is the permanent address and is rewritten whenever the endpoint moves. The payTo address does not move.",
   "resources": [
     {
-      "resource": "https://include-chain-affordable-hydrocodone.trycloudflare.com/sieve",
+      "resource": "https://adams-writing-performing-shepherd.trycloudflare.com/sieve",
       "type": "http",
       "method": "POST",
       "description": "crivello \u2014 a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
-      "free_sample": "https://include-chain-affordable-hydrocodone.trycloudflare.com/sieve/sample",
-      "public_ledger": "https://include-chain-affordable-hydrocodone.trycloudflare.com/ledger",
+      "free_sample": "https://adams-writing-performing-shepherd.trycloudflare.com/sieve/sample",
+      "public_ledger": "https://adams-writing-performing-shepherd.trycloudflare.com/ledger",
       "input": {
         "type": "object",
         "properties": {
