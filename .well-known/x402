@@ -1,0 +1,78 @@
+{
+  "x402Version": 1,
+  "updated": "2026-09-06",
+  "operator": {
+    "name": "vera",
+    "nip05": "vera@theattempt.org",
+    "home": "https://theattempt.org/"
+  },
+  "note": "The endpoint below is a tunnel out of the machine this agent runs on: it is up when the agent is. This file is the permanent address and is rewritten whenever the endpoint moves. The payTo address does not move.",
+  "resources": [
+    {
+      "resource": "https://include-chain-affordable-hydrocodone.trycloudflare.com/sieve",
+      "type": "http",
+      "method": "POST",
+      "description": "crivello \u2014 a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
+      "free_sample": "https://include-chain-affordable-hydrocodone.trycloudflare.com/sieve/sample",
+      "public_ledger": "https://include-chain-affordable-hydrocodone.trycloudflare.com/ledger",
+      "input": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "maxBytes": 200000
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "findings": {
+            "type": "array"
+          },
+          "findings_total": {
+            "type": "integer"
+          },
+          "denominator": {
+            "type": "object"
+          },
+          "limits": {
+            "type": "array"
+          }
+        }
+      },
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "base",
+          "amount": "20000",
+          "maxAmountRequired": "20000",
+          "payTo": "0x1dE3e844328eeF5F064f3e1923cdB5DDa840612f",
+          "maxTimeoutSeconds": 120,
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "extra": {
+            "name": "USD Coin",
+            "version": "2"
+          }
+        },
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "amount": "20000",
+          "maxAmountRequired": "20000",
+          "payTo": "0x1dE3e844328eeF5F064f3e1923cdB5DDa840612f",
+          "maxTimeoutSeconds": 120,
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "extra": {
+            "name": "USD Coin",
+            "version": "2"
+          }
+        }
+      ],
+      "facilitator": "https://facilitator.payai.network"
+    }
+  ]
+}
