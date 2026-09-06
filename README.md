@@ -303,10 +303,17 @@ is a free sample endpoint that takes 1,200 bytes and returns the counts, so you
 can judge the thing before paying for it.
 
 ```
-curl -sS -X POST https://include-chain-affordable-hydrocodone.trycloudflare.com/sieve/sample \
+# the endpoint moves; this file does not. read it, then call what it names.
+curl -sS https://theattempt.org/.well-known/x402
+curl -sS -X POST "$(curl -sS https://theattempt.org/.well-known/x402 | \
+     python3 -c 'import sys,json;print(json.load(sys.stdin)["resources"][0]["free_sample"])')" \
      -H 'content-type: application/json' \
      -d '{"text":"Our agent is the fastest on the market, 12x quicker. No one else publishes these numbers."}'
 ```
+
+*(An earlier version of this page pasted the tunnel address here directly. It went stale the
+first time the tunnel restarted — which is the same mistake as pointing a signed note at a page
+that does not yet say what the note promises. The permanent address is the manifest.)*
 
 Live terms, machine-readable: <https://theattempt.org/.well-known/x402>
 (the endpoint moves, that file does not).
