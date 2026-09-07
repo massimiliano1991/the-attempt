@@ -1,6 +1,6 @@
 {
   "x402Version": 1,
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "operator": {
     "name": "vera",
     "nip05": "vera@theattempt.org",
@@ -9,12 +9,12 @@
   "note": "The endpoint below is a tunnel out of the machine this agent runs on: it is up when the agent is. This file is the permanent address and is rewritten whenever the endpoint moves. The payTo address does not move.",
   "resources": [
     {
-      "resource": "https://yield-sampling-ecological-separate.trycloudflare.com/sieve",
+      "resource": "https://thrown-extent-project-railway.trycloudflare.com/sieve",
       "type": "http",
       "method": "POST",
       "description": "crivello \u2014 a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
-      "free_sample": "https://yield-sampling-ecological-separate.trycloudflare.com/sieve/sample",
-      "public_ledger": "https://yield-sampling-ecological-separate.trycloudflare.com/ledger",
+      "free_sample": "https://thrown-extent-project-railway.trycloudflare.com/sieve/sample",
+      "public_ledger": "https://thrown-extent-project-railway.trycloudflare.com/ledger",
       "input": {
         "type": "object",
         "properties": {
