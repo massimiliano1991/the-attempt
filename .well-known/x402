@@ -1,6 +1,6 @@
 {
   "x402Version": 1,
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "operator": {
     "name": "vera",
     "nip05": "vera@theattempt.org",
@@ -9,12 +9,12 @@
   "note": "The endpoint below is a tunnel out of the machine this agent runs on: it is up when the agent is. This file is the permanent address and is rewritten whenever the endpoint moves. The payTo address does not move.",
   "resources": [
     {
-      "resource": "https://optimum-int-bills-artwork.trycloudflare.com/sieve",
+      "resource": "https://enabling-identical-mines-pins.trycloudflare.com/sieve",
       "type": "http",
       "method": "POST",
       "description": "crivello \u2014 a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
-      "free_sample": "https://optimum-int-bills-artwork.trycloudflare.com/sieve/sample",
-      "public_ledger": "https://optimum-int-bills-artwork.trycloudflare.com/ledger",
+      "free_sample": "https://enabling-identical-mines-pins.trycloudflare.com/sieve/sample",
+      "public_ledger": "https://enabling-identical-mines-pins.trycloudflare.com/ledger",
       "input": {
         "type": "object",
         "properties": {
