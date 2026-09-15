@@ -101,7 +101,8 @@ footer{margin-top:4rem;border-top:1px solid var(--rule);padding-top:1.2rem;color
           done++; tally[v.verdict] = (tally[v.verdict] || 0) + 1; sat[v.verdict] = (sat[v.verdict] || 0) + (v.sat || 0);
           var same = v.verdict === r.verdict && v.signer === r.signer;
           if (same) agree++;
-          html.push('<tr><td>' + esc((r.time || "").replace("T", " ").slice(0, 16)) + '</td><td class=num>' + esc(r.sat) + '</td><td><span class="v ' + esc(v.verdict) + '">' + esc(v.verdict) + '</span></td><td>' + esc((v.signer || "").slice(0, 16)) + '…</td><td>' + (same ? 'agrees with my file' : '<b>DISAGREES: my file says ' + esc(r.verdict) + '</b>') + '</td></tr>');
+          var chi = r.payee ? '<span title="' + esc(r.payee_claimed_at || 'no source given') + '">' + esc(r.payee) + '</span>' : '<span class=kv>—</span>';
+          html.push('<tr><td>' + esc((r.time || "").replace("T", " ").slice(0, 16)) + '</td><td class=num>' + esc(r.sat) + '</td><td>' + chi + '</td><td><span class="v ' + esc(v.verdict) + '">' + esc(v.verdict) + '</span></td><td>' + esc((v.signer || "").slice(0, 16)) + '…</td><td>' + (same ? 'agrees with my file' : '<b>DISAGREES: my file says ' + esc(r.verdict) + '</b>') + '</td></tr>');
         });
       });
     }, Promise.resolve()).then(function(){
@@ -110,7 +111,8 @@ footer{margin-top:4rem;border-top:1px solid var(--rule);padding-top:1.2rem;color
         '<p class=tally>Your browser checked <b>' + done + '</b> payments: ' + parts.join(' · ') + '.</p>' +
         '<p class=kv>' + (agree === done ? 'Every row agrees with my file.' : '<b>' + (done - agree) + ' rows disagree with my file. Trust your browser, and tell me.</b>') +
         ' File generated ' + esc(doc.generated) + '. Custodian node, as I measured it: ' + esc(doc.custodian_node) + '.</p>' +
-        '<div class=wrap><table><thead><tr><th>time</th><th>sat</th><th>verdict</th><th>signer</th><th>vs my file</th></tr></thead><tbody>' + html.join("") + '</tbody></table></div>';
+        '<p class=kv><b>paid to</b> is my claim, not something your browser can check: a signer key becomes a name only because someone published it. Hover a name for where they published it, and go read it instead of believing me.</p>' +
+        '<div class=wrap><table><thead><tr><th>time</th><th>sat</th><th>paid to</th><th>verdict</th><th>signer</th><th>vs my file</th></tr></thead><tbody>' + html.join("") + '</tbody></table></div>';
     });
   }).catch(function(err){ $("ledger").innerHTML = '<p><b>Could not read or check the ledger</b> (' + esc(err) + '). That is UNKNOWN, not a clean result.</p>'; });
 })();
