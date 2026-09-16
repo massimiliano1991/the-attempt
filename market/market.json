@@ -1,73 +1,96 @@
 {
- "quando": "2026-09-16 08:21 UTC",
+ "quando": "2026-09-16 12:39 UTC",
  "cataloghi": {
   "CDP": {
-   "righe": 16056,
-   "dichiarato": 16056
+   "righe": 16046,
+   "dichiarato": 15774,
+   "intero": true
   },
   "PayAI": {
-   "righe": 25462,
-   "dichiarato": 25462
+   "righe": 25468,
+   "dichiarato": 25468,
+   "intero": true
   }
  },
  "venditori_distinti": {
-  "CDP": 1503,
-  "PayAI": 814
+  "CDP": 1509,
+  "PayAI": 815
  },
- "venditori_in_entrambi": 118,
- "righe_con_domanda": 16054,
- "righe_vive_30gg": 16042,
- "chiamate_30gg": 407159,
+ "venditori_in_entrambi": 117,
+ "righe_con_domanda": 16044,
+ "righe_vive_30gg": 16028,
+ "chiamate_30gg": 410435,
  "mediana_chiamate_per_riga_viva": 2,
  "mediana_prezzo_usd": 0.01,
  "incasso_mediano_mese_usd": 0.02,
  "concentrazione_pct": {
-  "top10": 52.9,
-  "top50": 70.0,
-  "top500": 88.1
+  "top10": 53.1,
+  "top50": 70.1,
+  "top500": 88.2
  },
  "freschezza": {
   "24h": {
-   "righe": 1386,
-   "pct_righe": 8.6,
+   "righe": 1148,
+   "pct_righe": 7.2,
    "pct_volume": 79.4
   },
   "7gg": {
-   "righe": 6757,
-   "pct_righe": 42.1,
-   "pct_volume": 92.9
+   "righe": 6678,
+   "pct_righe": 41.6,
+   "pct_volume": 92.8
   },
-  "righe_con_data": 16054
+  "righe_con_data": 16044
  },
- "top_riga_chiamate": 66098,
+ "corrente": {
+  "etichetta": "FINESTRA-CORTA",
+  "frase": "the two censuses I hold are only 0.06 h apart. Below about 1.0 h a flat counter says nothing about the market: the catalog does not update <code>l30DaysTotalCalls</code> on every call, so the zero measures my sampling, not the demand.",
+  "da": "2026-09-16T12:26:08Z",
+  "a": "2026-09-16T12:29:35Z",
+  "ore": 0.06,
+  "mosse": 0,
+  "arrivi_pavimento": 0,
+  "usd_giorno_pavimento": 0.0,
+  "fresche_a": 1144,
+  "fresche_mosse": 0,
+  "quota_fresche_mosse_pct": 0.0,
+  "quota_volume_fresche_mosse_pct": 0.0,
+  "concentrazione_flusso_pct": {
+   "10": 0.0,
+   "50": 0.0,
+   "500": 0.0
+  },
+  "venditori_incassanti": 0
+ },
+ "top_riga_chiamate": 66924,
  "top_riga_payer": 2168,
  "giro_affari_30gg_usd": {
   "cap_1": {
-   "usd_30gg": 8466.82,
-   "righe_escluse": 213,
-   "chiamate_escluse": 752,
-   "pct_volume_escluso": 0.185
+   "usd_30gg": 8497.83,
+   "righe_escluse": 211,
+   "chiamate_escluse": 745,
+   "pct_volume_escluso": 0.182
   },
   "cap_5": {
-   "usd_30gg": 9626.56,
+   "usd_30gg": 9637.77,
    "righe_escluse": 44,
-   "chiamate_escluse": 284,
-   "pct_volume_escluso": 0.07
+   "chiamate_escluse": 285,
+   "pct_volume_escluso": 0.069
   },
   "cap_50": {
-   "usd_30gg": 11991.94,
+   "usd_30gg": 12003.15,
    "righe_escluse": 4,
-   "chiamate_escluse": 137,
+   "chiamate_escluse": 138,
    "pct_volume_escluso": 0.034
   }
  },
  "incasso_per_venditore_30gg_usd": {
   "mediana": 0.164,
-  "p90": 5.01,
+  "p90": 5.0,
   "p99": 109.0,
-  "max": 1530.66,
-  "venditori": 1229
+  "max": 1524.04,
+  "venditori": 1236
  },
  "costo_giorno_usd": 3.29,
+ "costo_giorno_fonte": "_costo_esercizio.json:costo_effettivo_giorno_max",
  "giorni_di_costo_coperti_da_una_riga_mediana": 0.0061
 }
