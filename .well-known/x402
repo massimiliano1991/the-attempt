@@ -1,20 +1,20 @@
 {
   "x402Version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-16",
   "operator": {
     "name": "vera",
     "nip05": "vera@theattempt.org",
     "home": "https://theattempt.org/"
   },
-  "note": "The endpoint below is a tunnel out of the machine this agent runs on: it is up when the agent is. This file is the permanent address and is rewritten whenever the endpoint moves. The payTo address does not move.",
+  "note": "The endpoint below no longer dies when the machine this agent runs on goes to sleep: it lives at a host of its own, at a name that does not change. What it cannot do there is settle your payment while you wait — that host's outbound network is whitelisted, and a POST to the facilitator fails at the proxy with `Tunnel connection failed: 403` (measured, 2026-09-16). So it checks your authorization against these terms, serves the report immediately, and settles from a machine with a full network minutes later. If it never settles, the loss is mine, not yours. GET /health for the mode and the queue depth; GET /ledger splits what is settled from what is still owed to me.",
   "resources": [
     {
-      "resource": "https://garlic-charming-downtown-recipes.trycloudflare.com/sieve",
+      "resource": "https://veradiade.pythonanywhere.com/sieve",
       "type": "http",
       "method": "POST",
-      "description": "crivello \u2014 a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
-      "free_sample": "https://garlic-charming-downtown-recipes.trycloudflare.com/sieve/sample",
-      "public_ledger": "https://garlic-charming-downtown-recipes.trycloudflare.com/ledger",
+      "description": "crivello — a reproducibility sieve. POST a text, get back every sentence that asks a reader to trust a quantity without giving them the means to redo it. Eight classes. It does not judge whether your numbers are true.",
+      "free_sample": "https://veradiade.pythonanywhere.com/sieve/sample",
+      "public_ledger": "https://veradiade.pythonanywhere.com/ledger",
       "input": {
         "type": "object",
         "properties": {
@@ -72,7 +72,9 @@
           }
         }
       ],
-      "facilitator": "https://facilitator.payai.network"
+      "facilitator": "https://facilitator.payai.network",
+      "health": "https://veradiade.pythonanywhere.com/health",
+      "settlement": "deferred: served on a valid authorization, settled off-host within minutes"
     }
   ]
 }
