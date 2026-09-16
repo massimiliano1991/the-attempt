@@ -43,14 +43,20 @@
  },
  "corrente": {
   "etichetta": "FINESTRA-CORTA",
-  "frase": "the two censuses I hold are only 0.06 h apart. Below about 1.0 h a flat counter says nothing about the market: the catalog does not update <code>l30DaysTotalCalls</code> on every call, so the zero measures my sampling, not the demand.",
+  "frase": "the two censuses I hold are only 1.15 h apart, and the catalog itself publishes with a measured lag, so anything under about 1.7 h says nothing about the market: the zero measures my sampling, not the demand.",
+  "ritardo_min": 81.4,
+  "righe_ultima_ora": 0,
+  "ultimo_lastCalledAt": "2026-09-16T12:13:33Z",
   "da": "2026-09-16T12:26:08Z",
-  "a": "2026-09-16T12:29:35Z",
-  "ore": 0.06,
+  "a": "2026-09-16T13:34:58Z",
+  "ore": 1.15,
   "mosse": 0,
   "arrivi_pavimento": 0,
   "usd_giorno_pavimento": 0.0,
-  "fresche_a": 1144,
+  "netto": 0,
+  "scese": 0,
+  "fermi": 15758,
+  "fresche_a": 1141,
   "fresche_mosse": 0,
   "quota_fresche_mosse_pct": 0.0,
   "quota_volume_fresche_mosse_pct": 0.0,
@@ -92,5 +98,167 @@
  },
  "costo_giorno_usd": 3.29,
  "costo_giorno_fonte": "_costo_esercizio.json:costo_effettivo_giorno_max",
- "giorni_di_costo_coperti_da_una_riga_mediana": 0.0061
+ "giorni_di_costo_coperti_da_una_riga_mediana": 0.0061,
+ "coerenza": {
+  "quando": "2026-09-16T13:42:48Z",
+  "catalogo_del": "2026-09-16T13:34:58Z",
+  "venditori": 15,
+  "confrontati": 12,
+  "fuori_rete": 3,
+  "rapporto_mediano": 1.19,
+  "rapporto_min": 0.29,
+  "rapporto_max": 6.16,
+  "righe": [
+   {
+    "venditore": "0x7284d41b5b852f2bd4c99bdf95043d84452d299c",
+    "chiamate_30gg": 67010,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.103,
+    "incassi_giorno": 1942.9,
+    "chiamate_giorno": 2233.7,
+    "rapporto_chiamate_su_incassi": 1.15,
+    "usdc_medio": 0.02,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x325bdf6f7efab24a2210c48c1b64cab2eae1d430",
+    "chiamate_30gg": 59548,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.12,
+    "incassi_giorno": 1668.3,
+    "chiamate_giorno": 1984.9,
+    "rapporto_chiamate_su_incassi": 1.19,
+    "usdc_medio": 0.012745,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x158e90dd58fbe897ed8c244f472febee37283d00",
+    "chiamate_30gg": 56066,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.117,
+    "incassi_giorno": 1704.5,
+    "chiamate_giorno": 1868.9,
+    "rapporto_chiamate_su_incassi": 1.1,
+    "usdc_medio": 0.0102,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x9fb365e4e9385e2a39febad70368267e6f571d9a",
+    "chiamate_30gg": 26591,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.163,
+    "incassi_giorno": 1230.6,
+    "chiamate_giorno": 886.4,
+    "rapporto_chiamate_su_incassi": 0.72,
+    "usdc_medio": 0.015745,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "bd2xs189uhhnxuebevf3jfxrg8zqgrvqztpqh8hgkceq",
+    "chiamate_30gg": 21922,
+    "esito": "FUORI-RETE",
+    "perche": "indirizzo non-EVM: il mio lettore e' su Base"
+   },
+   {
+    "venditore": "0x52e29e0d2aa49bfbfc548c0a9f2196f4aa51f3ea",
+    "chiamate_30gg": 16361,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.14,
+    "incassi_giorno": 1429.0,
+    "chiamate_giorno": 545.4,
+    "rapporto_chiamate_su_incassi": 0.38,
+    "usdc_medio": 0.00481,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x9dba414637c611a16bea6f0796bfcbcbdc410df8",
+    "chiamate_30gg": 9368,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.912,
+    "incassi_giorno": 219.2,
+    "chiamate_giorno": 312.3,
+    "rapporto_chiamate_su_incassi": 1.42,
+    "usdc_medio": 0.008672,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x0e84ddedaae6a779c462c22a59f301ec31b6b808",
+    "chiamate_30gg": 6959,
+    "incassi_letti": 200,
+    "giorni_coperti": 2.692,
+    "incassi_giorno": 74.3,
+    "chiamate_giorno": 232.0,
+    "rapporto_chiamate_su_incassi": 3.12,
+    "usdc_medio": 0.0061,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0xabf4fabd7c416fb67202e5f9002389fc75e2a9d0",
+    "chiamate_30gg": 6333,
+    "incassi_letti": 200,
+    "giorni_coperti": 1.25,
+    "incassi_giorno": 160.0,
+    "chiamate_giorno": 211.1,
+    "rapporto_chiamate_su_incassi": 1.32,
+    "usdc_medio": 0.006689,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0xe9030014f5dae217d0a152f02a043567b16c1abf",
+    "chiamate_30gg": 6235,
+    "incassi_letti": 200,
+    "giorni_coperti": 0.534,
+    "incassi_giorno": 374.6,
+    "chiamate_giorno": 207.8,
+    "rapporto_chiamate_su_incassi": 0.55,
+    "usdc_medio": 0.056873,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0x6d6e695b09861467c7d462f5aaf31cf3540b9192",
+    "chiamate_30gg": 5852,
+    "incassi_letti": 200,
+    "giorni_coperti": 6.32,
+    "incassi_giorno": 31.6,
+    "chiamate_giorno": 195.1,
+    "rapporto_chiamate_su_incassi": 6.16,
+    "usdc_medio": 0.005335,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "9mkm5ra48kfcsv9hdq8sb3c3r5hjouewgq6sp1cx1vde",
+    "chiamate_30gg": 5408,
+    "esito": "FUORI-RETE",
+    "perche": "indirizzo non-EVM: il mio lettore e' su Base"
+   },
+   {
+    "venditore": "0x40a8cdd6a10ec1a8cb3dfb2834675e7a2cf4ad8b",
+    "chiamate_30gg": 5346,
+    "incassi_letti": 182,
+    "giorni_coperti": 0.294,
+    "incassi_giorno": 619.6,
+    "chiamate_giorno": 178.2,
+    "rapporto_chiamate_su_incassi": 0.29,
+    "usdc_medio": 0.006742,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "0xdd257723b86b4947483905cdacbbbc70facf2ec0",
+    "chiamate_30gg": 5268,
+    "incassi_letti": 200,
+    "giorni_coperti": 2.958,
+    "incassi_giorno": 67.6,
+    "chiamate_giorno": 175.6,
+    "rapporto_chiamate_su_incassi": 2.6,
+    "usdc_medio": 0.02104,
+    "esito": "CONFRONTATO"
+   },
+   {
+    "venditore": "4ofumgcrhsfr6lmy6auarsqpqyksvibsbxmieql4i8dc",
+    "chiamate_30gg": 5099,
+    "esito": "FUORI-RETE",
+    "perche": "indirizzo non-EVM: il mio lettore e' su Base"
+   }
+  ]
+ }
 }
