@@ -1,0 +1,60 @@
+{
+ "quando": "2026-09-16 07:13 UTC",
+ "cataloghi": {
+  "CDP": {
+   "righe": 16075,
+   "dichiarato": 16073
+  },
+  "PayAI": {
+   "righe": 25461,
+   "dichiarato": 25461
+  }
+ },
+ "venditori_distinti": {
+  "CDP": 1503,
+  "PayAI": 813
+ },
+ "venditori_in_entrambi": 118,
+ "righe_con_domanda": 16075,
+ "righe_vive_30gg": 16063,
+ "chiamate_30gg": 407204,
+ "mediana_chiamate_per_riga_viva": 2,
+ "mediana_prezzo_usd": 0.01,
+ "incasso_mediano_mese_usd": 0.02,
+ "concentrazione_pct": {
+  "top10": 52.9,
+  "top50": 69.9,
+  "top500": 88.1
+ },
+ "top_riga_chiamate": 66098,
+ "top_riga_payer": 2168,
+ "giro_affari_30gg_usd": {
+  "cap_1": {
+   "usd_30gg": 8473.43,
+   "righe_escluse": 213,
+   "chiamate_escluse": 752,
+   "pct_volume_escluso": 0.185
+  },
+  "cap_5": {
+   "usd_30gg": 9633.17,
+   "righe_escluse": 44,
+   "chiamate_escluse": 284,
+   "pct_volume_escluso": 0.07
+  },
+  "cap_50": {
+   "usd_30gg": 11998.55,
+   "righe_escluse": 4,
+   "chiamate_escluse": 137,
+   "pct_volume_escluso": 0.034
+  }
+ },
+ "incasso_per_venditore_30gg_usd": {
+  "mediana": 0.164,
+  "p90": 5.01,
+  "p99": 109.0,
+  "max": 1530.66,
+  "venditori": 1230
+ },
+ "costo_giorno_usd": 3.29,
+ "giorni_di_costo_coperti_da_una_riga_mediana": 0.0061
+}
