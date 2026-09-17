@@ -1,64 +1,64 @@
 {
- "quando": "2026-09-17 01:27 UTC",
+ "quando": "2026-09-17 03:55 UTC",
  "cataloghi": {
   "CDP": {
-   "righe": 15726,
-   "dichiarato": 15726,
+   "righe": 15734,
+   "dichiarato": 15734,
    "intero": true
   },
   "PayAI": {
-   "righe": 25485,
-   "dichiarato": 25485,
+   "righe": 25489,
+   "dichiarato": 25489,
    "intero": true
   }
  },
  "venditori_distinti": {
-  "CDP": 1527,
-  "PayAI": 820
+  "CDP": 1528,
+  "PayAI": 819
  },
  "venditori_in_entrambi": 116,
- "righe_con_domanda": 15722,
- "righe_vive_30gg": 15710,
- "chiamate_30gg": 414169,
+ "righe_con_domanda": 15717,
+ "righe_vive_30gg": 15705,
+ "chiamate_30gg": 414309,
  "mediana_chiamate_per_riga_viva": 2,
  "mediana_prezzo_usd": 0.01,
  "incasso_mediano_mese_usd": 0.02,
  "concentrazione_pct": {
   "top10": 53.6,
   "top50": 70.5,
-  "top500": 88.5
+  "top500": 88.6
  },
  "freschezza": {
   "24h": {
-   "righe": 992,
-   "pct_righe": 6.3,
-   "pct_volume": 79.0
+   "righe": 916,
+   "pct_righe": 5.8,
+   "pct_volume": 78.8
   },
   "7gg": {
-   "righe": 6509,
-   "pct_righe": 41.4,
+   "righe": 6464,
+   "pct_righe": 41.1,
    "pct_volume": 92.3
   },
-  "righe_con_data": 15722
+  "righe_con_data": 15717
  },
  "corrente": {
   "etichetta": "SOSTENUTA",
-  "frase": "62.3% of the 30-day volume held by rows that looked fresh was carried by rows that provably took new paid calls inside a 12.6-hour window I measured myself. That is demand, not the tail of an old burst.",
-  "ritardo_min": 34.9,
-  "righe_ultima_ora": 44,
+  "frase": "62.4% of the 30-day volume held by rows that looked fresh was carried by rows that provably took new paid calls inside a 15.5-hour window I measured myself. That is demand, not the tail of an old burst.",
+  "ritardo_min": 204.0,
+  "righe_ultima_ora": 0,
   "ultimo_lastCalledAt": "2026-09-17T00:29:32Z",
   "cadenza_pavimento_ore": 5.865,
   "cadenza_tetto_ore": 0.707,
   "ripubblicazioni_viste": 2,
-  "campioni_interi": 19,
+  "campioni_interi": 22,
   "orologi": {
    "ok": true,
    "da": "2026-09-16T12:26:08Z",
-   "a": "2026-09-17T01:04:27Z",
-   "ore": 12.64,
+   "a": "2026-09-17T03:53:31Z",
+   "ore": 15.46,
    "righe_da": 15776,
-   "righe_a": 15726,
-   "delta_righe": -50,
+   "righe_a": 15704,
+   "delta_righe": -72,
    "filigrana_da": "2026-09-16T12:13:33.9Z",
    "filigrana_a": "2026-09-17T00:29:32.708Z",
    "filigrana_mossa": true,
@@ -84,46 +84,46 @@
     {
      "filigrana": "2026-09-17T00:29:32.708Z",
      "da": "2026-09-17T01:04:27Z",
-     "a": "2026-09-17T01:04:27Z",
+     "a": "2026-09-17T03:53:31Z",
      "righe_da": 15726,
-     "righe_a": 15726,
-     "campioni": 1,
-     "delta_righe": 0
+     "righe_a": 15704,
+     "campioni": 4,
+     "delta_righe": -22
     }
    ],
-   "blocchi_fermi_con_lista_mossa": 2,
+   "blocchi_fermi_con_lista_mossa": 3,
    "peggiore_delta_a_filigrana_ferma": -48,
-   "lettura": "la LISTA si muove e i CONTATORI no — 2 blocchi a filigrana FERMA con la lista che cambia (peggiore: -48 righe fra 2026-09-16T12:26:08Z e 2026-09-16T18:18:03Z, filigrana 2026-09-16T12:13:33.9Z)"
+   "lettura": "la LISTA si muove e i CONTATORI no — 3 blocchi a filigrana FERMA con la lista che cambia (peggiore: -48 righe fra 2026-09-16T12:26:08Z e 2026-09-16T18:18:03Z, filigrana 2026-09-16T12:13:33.9Z)"
   },
   "distribuzione": {
-   "quota_picco_pct": 18.2,
+   "quota_picco_pct": 17.6,
    "liscia": false,
-   "righe_24h": 997,
-   "ore_vuote": 0,
-   "picco_su_uniforme_x": 4.4,
-   "p_sotto_uniforme": 1.617946882922174e-60,
-   "perche_liscia": "CONCENTRATA: il picco porta 181 righe, che sotto l'uniforme capita con p=1.6e-60 (4.4x l'uniforme, 0 ore vuote)",
-   "uniforme_per_ora": 41.54
+   "righe_24h": 916,
+   "ore_vuote": 3,
+   "picco_su_uniforme_x": 4.2,
+   "p_sotto_uniforme": 6.250869581066536e-52,
+   "perche_liscia": "CONCENTRATA: il picco porta 161 righe, che sotto l'uniforme capita con p=6.3e-52 (4.2x l'uniforme, 3 ore vuote)",
+   "uniforme_per_ora": 38.17
   },
   "da": "2026-09-16T12:26:08Z",
-  "a": "2026-09-17T01:04:27Z",
-  "ore": 12.64,
-  "mosse": 530,
-  "arrivi_pavimento": 6420,
-  "usd_giorno_pavimento": 259.7911,
-  "netto": 4440,
-  "scese": 712,
-  "fermi": 14376,
-  "fresche_a": 1138,
+  "a": "2026-09-17T03:53:31Z",
+  "ore": 15.46,
+  "mosse": 531,
+  "arrivi_pavimento": 6421,
+  "usd_giorno_pavimento": 212.4377,
+  "netto": 4443,
+  "scese": 710,
+  "fermi": 14355,
+  "fresche_a": 1128,
   "fresche_mosse": 217,
-  "quota_fresche_mosse_pct": 19.1,
-  "quota_volume_fresche_mosse_pct": 62.3,
+  "quota_fresche_mosse_pct": 19.2,
+  "quota_volume_fresche_mosse_pct": 62.4,
   "concentrazione_flusso_pct": {
    "10": 72.3,
    "50": 88.3,
    "500": 99.5
   },
-  "venditori_incassanti": 221
+  "venditori_incassanti": 222
  },
  "coerenza": {
   "quando": "2026-09-17T00:50:13Z",
@@ -291,26 +291,26 @@
  "top_riga_payer": 2173,
  "giro_affari_30gg_usd": {
   "cap_1": {
-   "usd_30gg": 8536.55,
-   "righe_escluse": 213,
-   "chiamate_escluse": 731,
+   "usd_30gg": 8534.91,
+   "righe_escluse": 212,
+   "chiamate_escluse": 728,
    "pct_volume_escluso": 0.176
   },
   "cap_5": {
-   "usd_30gg": 9626.2,
+   "usd_30gg": 9618.55,
    "righe_escluse": 48,
    "chiamate_escluse": 290,
    "pct_volume_escluso": 0.07
   },
   "cap_50": {
-   "usd_30gg": 12024.06,
+   "usd_30gg": 12016.41,
    "righe_escluse": 7,
    "chiamate_escluse": 143,
    "pct_volume_escluso": 0.035
   }
  },
  "incasso_per_venditore_30gg_usd": {
-  "mediana": 0.161,
+  "mediana": 0.16,
   "p90": 4.94,
   "p99": 109.0,
   "max": 1507.17,
