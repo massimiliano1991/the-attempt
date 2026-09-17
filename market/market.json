@@ -1,9 +1,9 @@
 {
- "quando": "2026-09-17 01:21 UTC",
+ "quando": "2026-09-17 01:27 UTC",
  "cataloghi": {
   "CDP": {
-   "righe": 15727,
-   "dichiarato": 15724,
+   "righe": 15726,
+   "dichiarato": 15726,
    "intero": true
   },
   "PayAI": {
@@ -17,9 +17,9 @@
   "PayAI": 820
  },
  "venditori_in_entrambi": 116,
- "righe_con_domanda": 15725,
- "righe_vive_30gg": 15713,
- "chiamate_30gg": 414181,
+ "righe_con_domanda": 15722,
+ "righe_vive_30gg": 15710,
+ "chiamate_30gg": 414169,
  "mediana_chiamate_per_riga_viva": 2,
  "mediana_prezzo_usd": 0.01,
  "incasso_mediano_mese_usd": 0.02,
@@ -35,11 +35,11 @@
    "pct_volume": 79.0
   },
   "7gg": {
-   "righe": 6512,
+   "righe": 6509,
    "pct_righe": 41.4,
    "pct_volume": 92.3
   },
-  "righe_con_data": 15725
+  "righe_con_data": 15722
  },
  "corrente": {
   "etichetta": "SOSTENUTA",
@@ -99,7 +99,11 @@
    "quota_picco_pct": 18.2,
    "liscia": false,
    "righe_24h": 997,
-   "ore_vuote": 0
+   "ore_vuote": 0,
+   "picco_su_uniforme_x": 4.4,
+   "p_sotto_uniforme": 1.617946882922174e-60,
+   "perche_liscia": "CONCENTRATA: il picco porta 181 righe, che sotto l'uniforme capita con p=1.6e-60 (4.4x l'uniforme, 0 ore vuote)",
+   "uniforme_per_ora": 41.54
   },
   "da": "2026-09-16T12:26:08Z",
   "a": "2026-09-17T01:04:27Z",
@@ -287,19 +291,19 @@
  "top_riga_payer": 2173,
  "giro_affari_30gg_usd": {
   "cap_1": {
-   "usd_30gg": 8536.53,
-   "righe_escluse": 216,
-   "chiamate_escluse": 737,
-   "pct_volume_escluso": 0.178
+   "usd_30gg": 8536.55,
+   "righe_escluse": 213,
+   "chiamate_escluse": 731,
+   "pct_volume_escluso": 0.176
   },
   "cap_5": {
-   "usd_30gg": 9631.18,
-   "righe_escluse": 49,
-   "chiamate_escluse": 292,
-   "pct_volume_escluso": 0.071
+   "usd_30gg": 9626.2,
+   "righe_escluse": 48,
+   "chiamate_escluse": 290,
+   "pct_volume_escluso": 0.07
   },
   "cap_50": {
-   "usd_30gg": 12079.04,
+   "usd_30gg": 12024.06,
    "righe_escluse": 7,
    "chiamate_escluse": 143,
    "pct_volume_escluso": 0.035
