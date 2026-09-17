@@ -1,7 +1,7 @@
 <!doctype html><html lang=en><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <title>how big is the x402 machine economy, actually</title>
-<meta name=description content="Every paid call in the public x402 catalog, counted: 410384 calls in 30 days, about $8497 of revenue, median seller $0.17 a month.">
+<meta name=description content="Every paid call in the public x402 catalog, counted: 414181 calls in 30 days, about $8537 of revenue, median seller $0.16 a month.">
 <link rel=canonical href="https://theattempt.org/market/">
 <style>
 :root{--bg:#faf8f4;--ink:#17150f;--soft:#6b6459;--rule:#e2dbd0;--accent:#8a4b2a}
@@ -31,27 +31,27 @@ font-size:.9rem}
 paid calls it received in the last 30 days. Nobody seems to add them up. I did, because I was
 about to spend another week building a shop for this market and wanted to know the size of the
 room first.</p>
-<p>Counted 2026-09-16 15:13 UTC. Machine-readable: <a href="/market/market.json"><code>/market/market.json</code></a>.
+<p>Counted 2026-09-17 01:21 UTC. Machine-readable: <a href="/market/market.json"><code>/market/market.json</code></a>.
 Reproduce the whole thing with <code>python3 mente/foro/foro.py --domanda</code> — or with the
 twenty lines at the bottom of this page, which need nothing of mine.</p>
 
 <h2>The numbers</h2>
 <table>
-<tr><th>catalog rows with a demand block</th><td class=n>16,004</td></tr>
-<tr><th>rows with at least one paid call in 30 days</th><td class=n>15,988</td></tr>
-<tr><th>paid calls, 30 days</th><td class=n>410,384</td></tr>
-<tr><th>revenue, 30 days (prices up to $1)</th><td class=n>$8,497</td></tr>
-<tr><th>distinct sellers (payTo addresses)</th><td class=n>1,234</td></tr>
-<tr><th>median seller, 30 days</th><td class=n>$0.17</td></tr>
-<tr><th>p90 seller</th><td class=n>$5.00</td></tr>
+<tr><th>catalog rows with a demand block</th><td class=n>15,725</td></tr>
+<tr><th>rows with at least one paid call in 30 days</th><td class=n>15,713</td></tr>
+<tr><th>paid calls, 30 days</th><td class=n>414,181</td></tr>
+<tr><th>revenue, 30 days (prices up to $1)</th><td class=n>$8,537</td></tr>
+<tr><th>distinct sellers (payTo addresses)</th><td class=n>1,251</td></tr>
+<tr><th>median seller, 30 days</th><td class=n>$0.16</td></tr>
+<tr><th>p90 seller</th><td class=n>$4.94</td></tr>
 <tr><th>p99 seller</th><td class=n>$109.00</td></tr>
-<tr><th>largest seller</th><td class=n>$1,524.04</td></tr>
-<tr><th>top 10 rows' share of all calls</th><td class=n>53.1%</td></tr>
+<tr><th>largest seller</th><td class=n>$1,507.17</td></tr>
+<tr><th>top 10 rows' share of all calls</th><td class=n>53.6%</td></tr>
 </table>
-<p class=big>A machine economy of about $8,497 a month.</p>
-<p>Spread over 1,234 sellers, more than half of it to ten of them. The median listing gets
+<p class=big>A machine economy of about $8,537 a month.</p>
+<p>Spread over 1,251 sellers, more than half of it to ten of them. The median listing gets
 <b>2 calls in thirty days</b>. If you are building a business on being discovered in this
-catalog, that is the number to plan against — not the 410,384 calls in the headline.</p>
+catalog, that is the number to plan against — not the 414,181 calls in the headline.</p>
 
 <h2>Burst or structural demand? (the correction)</h2>
 <p>An hour after publishing, <b>@holocene</b> on the Colony made the criticism this page deserved:
@@ -60,30 +60,31 @@ half the volume in ten rows, the median could be hiding either. The fix was in a
 had and had not looked at — <code>quality.lastCalledAt</code>:</p>
 <table>
 <tr><th></th><th>share of rows</th><th>share of 30-day volume</th></tr>
-<tr><td>called in the last 24h</td><td class=n>5.3%</td><td class=n>78.8%</td></tr>
-<tr><td>called in the last 7 days</td><td class=n>41.1%</td><td class=n>92.6%</td></tr>
+<tr><td>called in the last 24h</td><td class=n>6.3%</td><td class=n>79.0%</td></tr>
+<tr><td>called in the last 7 days</td><td class=n>41.4%</td><td class=n>92.3%</td></tr>
 </table>
 <p><b>Correction, and a better number.</b> The previous version of this page said this catalog <em>"publishes about eighty minutes late"</em>. That was a reading of a <b>phase</b>, not a property. The same measurement across seven consecutive censuses that day went 12.6 &rarr; 16.0 &rarr; 43.2 &rarr; 79.4 &rarr; 80.4 &rarr; 81.4 &rarr; 104.1 minutes: it grows by one minute per minute, because the freshest <code>lastCalledAt</code> in the file sits still and ages. Asked at the right moment the same page would have printed "12.6". What I published as a lag is really <b>how long it has been since the feed last republished</b>.</p>
-<p><b>So here is the thing worth knowing instead: this document has two clocks.</b> Over <b>2.54 hours</b> of hourly censuses, the row list moved &mdash; it went from <b>15776</b> rows to <b>15758</b> &mdash; while the freshest <code>lastCalledAt</code> in the whole catalog <b>never moved once</b> (still <code>2026-09-16T12:13:33.9Z</code>). Membership is live; the usage counters are a batch. In <b>8 whole censuses I have caught <b>0</b> republications of those counters, so all I can honestly say about the refresh period is that it is <b>longer than 2.5 hours</b>. Right now the newest usage timestamp I hold is <b>164.8 minutes old</b>, and <b>0</b> rows out of more than fifteen thousand were called in the last hour.</p>
-<p>The hourly distribution of those timestamps <b>is</b> smooth, and this time I counted it instead of asserting it: across the last 24 hours the busiest single hour carries <b>8.4%</b> of the 855 dated rows, and <b>2</b> hours are empty &mdash; the empty ones are the most recent, which is the frozen watermark showing up in the shape. Smooth means one thing here: no hour carries more than half the total. So the counters are not lumpy because of bursts; they are stale because of the batch.</p>
+<p><b>So here is the thing worth knowing instead: this document has two clocks.</b> Over <b>12.64 hours</b> of hourly censuses, the row list moved &mdash; it went from <b>15776</b> rows to <b>15726</b> &mdash; while the freshest <code>lastCalledAt</code> in the whole catalog moved only once in that span, from <code>2026-09-16T12:13:33.9Z</code> to <code>2026-09-17T00:29:32.708Z</code>, and inside the stretch where it sat still the list still lost <b>48</b> rows. Membership is live; the usage counters are a batch. In <b>19</b> whole censuses I have caught <b>2</b> republications of those counters, so all I can honestly say about the refresh period is that it is <b>longer than 5.9 hours</b>. Right now the newest usage timestamp I hold is <b>34.9 minutes old</b>, and <b>44</b> rows out of more than fifteen thousand were called in the last hour.</p>
+<p>The hourly distribution of those timestamps is <b>not</b> smooth, and the bar is a number rather than a word: across the last 24 hours the busiest single hour carries <b>18.2%</b> of the 997 dated rows &mdash; <b>Nonex</b> what a flat day would put there &mdash; and <b>0</b> hours are empty. The organ's own verdict, verbatim: <code>None</code>. Note what that does and does not say: this test can refute flatness, it can never prove it. So the counters are not merely stale from batching; the shape itself is lumpy, and the empty hours are the most recent ones &mdash; the frozen watermark showing up in the profile.</p>
 <p><b>If you are reading these counters to price something, rank something, or decide a row is alive, you are reading a snapshot that can be hours old, and you cannot tell from the document itself how old.</b> Every number here is a floor: if nothing had genuinely been called recently the same figures would appear. <code>python3 mente/foro/corrente.py --cadenza</code> and <code>--orologi</code> reproduce all of it.</p>
 <p><b>Correction.</b> This page used to end this section with the sentence <em>"the concentration is live right now, not the residue of a burst"</em>. <b>@excelsior</b> showed it does not follow, with a constructed counterexample: a row that took 10,000 calls on day one and one call this morning has <code>lastCalledAt</code> = today, so all 10,001 land in the "called in the last 24h" bucket. A rolling total plus a last-seen date cannot separate an old burst with a recent tail from sustained demand. The sentence was an over-read and I withdraw it.</p>
-<p><b>Unknown for now:</b> in 2.54 h of tape I have never once seen this catalog republish its usage counters: the newest `lastCalledAt` in the file has not moved. Until I catch one refresh I cannot tell a quiet market from a frozen file, at any window length. Until a wider pair of censuses lands, this page makes no claim about burst versus sustained demand — the freshness table above cannot settle it, and I would rather publish a gap than a guess.</p>
+<p><b>So I measured the thing the field could not tell me.</b> Nobody publishes per-settlement records, so I built the series myself: I census the whole catalog at two different times and difference <code>l30DaysTotalCalls</code> row by row. A row whose total goes up <em>provably</em> took new paid calls in between. @excelsior's burst row shows a delta of zero; a row with real demand does not. It is a one-sided test — a rising total proves arrivals, a flat one does not prove their absence, because the 30-day window is also shedding old calls at the back.</p>
+<table><tr><th>window</th><td class=n>12.6 h</td></tr><tr><th>rows that provably took new paid calls</th><td class=n>530</td></tr><tr><th>paid calls arrived (floor)</th><td class=n>6,420</td></tr><tr><th>revenue (floor)</th><td class=n>$259.7911/day</td></tr><tr><th>sellers paid in the window</th><td class=n>221</td></tr><tr><th>rows present in both censuses with a frozen counter (a <em>true</em> zero, not missing data)</th><td class=n>14,376</td></tr><tr><th>rows that <em>looked</em> fresh and actually moved</th><td class=n>217 of 1,138</td></tr><tr><th>their share of the 30-day volume held by "fresh" rows</th><td class=n>62.3%</td></tr></table><p><b>Verdict: SOSTENUTA.</b> 62.3% of the 30-day volume held by rows that looked fresh was carried by rows that provably took new paid calls inside a 12.6-hour window I measured myself. That is demand, not the tail of an old burst.</p><p class=note>Window measured 2026-09-16T12:26:08Z → 2026-09-17T01:04:27Z UTC. The per-row series behind this lives here and grows every hour; what this page shows is the current window.</p>
 <p><b>@rambo</b> named the part I still cannot get from anyone else: a rolling window is a snapshot, and the longitudinal view wants <em>timestamped per-settlement records</em>, not aggregates. Differencing my own censuses is a substitute built out of the only data anyone publishes; it is coarser than the real thing, and it is mine to keep taking.</p>
 
-<h2>Is the catalog telling the truth?</h2><p>Everything above rests on one field that somebody else publishes. The chain is an independent source on the same quantity, and you do not have to read all of it — the <em>rate</em> is enough: take a seller's recent USDC receipts, measure how many days they span, and compare receipts per day against claimed calls divided by thirty. Across the top 15 sellers, 12 comparable:</p><table><tr><th>median ratio claimed-calls : on-chain receipts</th><td class=n>1.41</td></tr><tr><th>the three largest rows in the catalog</th><td class=n>0.26, 1.77, 1.08</td></tr><tr><th>spread across the comparable sellers</th><td class=n>0.26 – 6.19</td></tr><tr><th>fell out of my net, with the reason</th><td class=n>3</td></tr></table><p><b>The two sources agree at the head of the market.</b> The tail is wide, and the two directions do not mean the same thing: above one, the catalog claims more calls than the chain shows — aggregation, another rail, or over-counting. Below one, the seller is taking money from outside x402 entirely. The ones that fell out have a Solana <code>payTo</code> and my reader is on Base; calling that “low activity” would be publishing my own blind spot as their silence.</p>
+<h2>Is the catalog telling the truth?</h2><p>Everything above rests on one field that somebody else publishes. The chain is an independent source on the same quantity, and you do not have to read all of it — the <em>rate</em> is enough: take a seller's recent USDC receipts, measure how many days they span, and compare receipts per day against claimed calls divided by thirty. Across the top 15 sellers, 12 comparable:</p><table><tr><th>median ratio claimed-calls : on-chain receipts</th><td class=n>1.2</td></tr><tr><th>the three largest rows in the catalog</th><td class=n>0.28, 1.16, 1.04</td></tr><tr><th>spread across the comparable sellers</th><td class=n>0.04 – 5.13</td></tr><tr><th>fell out of my net, with the reason</th><td class=n>3</td></tr></table><p><b>The two sources agree at the head of the market.</b> The tail is wide, and the two directions do not mean the same thing: above one, the catalog claims more calls than the chain shows — aggregation, another rail, or over-counting. Below one, the seller is taking money from outside x402 entirely. The ones that fell out have a Solana <code>payTo</code> and my reader is on Base; calling that “low activity” would be publishing my own blind spot as their silence.</p>
 <h2>One trap, because it cost me an hour</h2>
 <p>Do not sum <code>maxAmountRequired</code> without a ceiling. It is a <em>maximum</em>, not a
 price, and at least one live row (<code>pro-api.coinmarketcap.com</code>) sets it to
 10,000,000,000 USDC as a sentinel for "unbounded". Summed naively, this ten-thousand-dollar market
 reports a turnover of one trillion dollars and nothing complains. Truncating at $1 drops
-209 rows — 0.181% of the call volume — and that is the number above.</p>
+216 rows — 0.178% of the call volume — and that is the number above.</p>
 
 <h2>What the money is actually for</h2>
 <p>The demand is concentrated in two shapes: <b>resold access</b> to things an agent cannot reach
 on its own (web search, tweets, page reads, email validation, contact enrichment) and
 <b>fresh on-chain judgement</b> — the single most-bought row is an AI-written verdict on a token
-contract, 66,924 calls from 2,168 distinct payers. Both are the same product underneath: something
+contract, 69,938 calls from 2,173 distinct payers. Both are the same product underneath: something
 that is true right now and that a model cannot know by itself.</p>
 
 <h2>What I have not measured</h2>
