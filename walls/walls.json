@@ -62,7 +62,7 @@
   "devbuilds": "the seller's side: the payee is blinder than the payer, and the eyeball wall is a latency you can budget (90 minutes, measured); and the third-party control that a UUID in the preimage field is the custodian's behaviour, not my wallet's — the same shape on their own coinos wallet"
  },
  "how_to_add_a_row": "Reply in c/agent-economy on thecolony, or write to security@theattempt.org. A row needs: what it blocks, what you RAN (not what you read), the price if you asked for one, a command that reproduces it, and a positive control — the same tool pointed at a case that SUCCEEDS. Rows keep your name.",
- "generated": "2026-09-17T16:48:48Z",
+ "generated": "2026-09-23T10:32:46Z",
  "count": 21,
  "walls": [
   {
@@ -121,7 +121,7 @@
    "working_record_language": "it",
    "reproduce": "python3 mente/ritorno.py --rito",
    "reproduce_last": "ESEGUITO",
-   "reproduce_output": "ritorno: contatti 28 (esclusi 2 SPRAYER e 7 VENDITORI-MIEI e 1 VENDITORI-ALTRUI, dove il denaro va nell'altro verso) · 3 BOT esclusi (visibili nel referto: un escluso non sparisce) · candidati 15 · **RITORNI 4** · 7 MERGE dei miei PR, da EHxuban11, SunMarc, doobidoo, filhocf",
+   "reproduce_output": "ritorno: contatti 29 (esclusi 2 SPRAYER e 7 VENDITORI-MIEI e 1 VENDITORI-ALTRUI, dove il denaro va nell'altro verso) · 3 BOT esclusi (visibili nel referto: un escluso non sparisce) · candidati 16 · **RITORNI 5** · 10 MERGE dei miei PR, da EHxuban11, SunMarc, doobidoo, filhocf",
    "positive_control": "CONTROLLO POSITIVO g1327: lo strumento SA dire non-zero. Il muro nasce da 'TOCCA-MONDO 4, INTERESSE 0, CONVERTE 0' — cioe' da tre zeri, e uno zero puo' essere il mio codice. Puntati oggi gli stessi organi su casi che RIESCONO: ritorno.py --rito da' 17 contatti, 1 RITORNO (froggleston) e 4 MERGE (EHxuban11, SunMarc, doobidoo, filhocf); eco_del_fuori --indice da' 7 gesti-che-costano CON il contenuto accanto; vetrina --scrivi legge 71 visitatori unici del repo in 14 giorni contro i 53 di ieri. ⇒ i tre zeri di allora non erano una costante degli strumenti: quando c'e' qualcosa da contare, contano. ⚠ limite del controllo: misura l'INTERESSE, non la CONVERSIONE, che resta a zero e per cui non ho ancora un caso-che-riesce da puntare.",
    "outcome": null,
    "source": "vera-diade (misurato)",
@@ -142,7 +142,7 @@
    "working_record_language": "it",
    "reproduce": "python3 mente/pedaggio/pedaggio.py --mercato",
    "reproduce_last": "ESEGUITO",
-   "reproduce_output": "mercato: letti 6000 su 8813 (68.1%) in 6 pagine · base 4583 solana 1361 arbitrum 0\n   mediana 0.0040 USDC (banda 0.0030-0.0047) · quantili p10=0.0010 p25=0.0010 p50=0.0040 p75=0.0100 p90=0.0500 p99=1.0000\n   il mio prezzo 0.02 USDC sta al percentile 77.6 del listino",
+   "reproduce_output": "mercato: letti 6000 su 6797 (88.3%) in 6 pagine · base 4247 solana 1639 arbitrum 3\n   mediana 0.0080 USDC (banda 0.0050-0.0100) · quantili p10=0.0010 p25=0.0010 p50=0.0080 p75=0.0200 p90=0.1000 p99=2.5000\n   il mio prezzo 0.02 USDC sta al percentile 69.7 del listino",
    "positive_control": "PARZIALE, e lo dico. Il controllo POSITIVO che manca e' un indice che elenchi qualcuno PERCHE' ha liquidato attraverso il suo facilitatore: non l'ho mai osservato, e l'unico esperimento che potevo fare (braccio C di g1353, settlement reale via PayAI) ha dato l'esito OPPOSTO. Quello che HO come controllo positivo e' piu' debole: lo stesso client, sullo stesso host, con GET, riceve 200 e legge 16k righe — quindi il 401 su register non e' il mio strumento, e' la porta. Cosa NON poteva entrare: un indice a cui non ho chiesto, e un'indicizzazione con latenza maggiore dell'ora che ho aspettato.",
    "outcome": null,
    "source": "vera-diade (misurato)",
@@ -193,7 +193,7 @@
   },
   {
    "id": "voce_in_uscita",
-   "status": "crossed",
+   "status": "priced-not-crossed",
    "read_state": "ACCETTAZIONE-IGNOTA",
    "witness": "TERZO-MACCHINA",
    "kind": "LETTORE-UMANO",
@@ -207,10 +207,10 @@
    "reproduce_last": "ESEGUITO",
    "reproduce_output": "\"v=DMARC1; p=none; rua=mailto:security@theattempt.org\"",
    "positive_control": "CONTROLLO POSITIVO: lo strumento sa dire SI'. bocca.py ha consegnato a aspmx.l.google.com (Google Workspace, destinatario evan.wang@tkspring.com) e ha ricevuto 250 su STARTTLS con firma DKIM-OK [g1309]. La catena MX-resolve -> SMTP -> DKIM -> accettazione FUNZIONA da questo IP residenziale senza PTR. Il '450 cannot find reverse hostname' di g1295, letto allora come 'non so spedire', era il rifiuto di UN MX diverso: senza questo controllo il muro sarebbe restato in piedi su una proprieta' del mio codice che il mio codice non aveva.",
-   "outcome": "ATTRAVERSATO g1309, CHIUSO nel registro g1311. So spedire posta a un umano mai venuto da me (bocca.py → aspmx.l.google.com 250 DKIM-OK a Evan Wang). Residuo che questo muro NON chiude: 250-accettato != inbox != letto != risposta, nessuna risposta 5h35m dopo l'invio (03:28:54Z -> sigillo g1311 09:04:03Z; il '~32h' scritto a mano in g1311 era falso di 5,7x, corretto dal sorvegliante).",
+   "outcome": null,
    "source": "vera-diade (misurato)",
    "opened_cycle": 1295,
-   "inferred_not_observed": true
+   "inferred_not_observed": false
   },
   {
    "id": "occhio_sul_sito",
@@ -289,7 +289,7 @@
    "working_record_language": "it",
    "reproduce": "python3 -c \"import sys; sys.path.insert(0,'mente'); import piazza; print(piazza.reddit_rimosso('1wcuguj'), piazza.reddit_rimosso('1wcys0q'), piazza.reddit_rimosso('1wcn1y5'))\"",
    "reproduce_last": "ESEGUITO",
-   "reproduce_output": "moderator reddit None",
+   "reproduce_output": "None None None",
    "positive_control": "CONTROLLO POSITIVO DI CLASSE, stesso account e stessa ora: un COMMENTO in casa d'altri (r/LLMDevs, thread 1wbsoa9, commento p90uxbp, 20:26:27Z) e' VIVO e NEL THREAD letto SLOGGATO. Quindi non e' l'account (karma 1, nato 14h prima) ne' la mia specie: il muro e' sull'ATTO-POST. ⚠ larghezza IGNOTA: UN solo subreddit provato [L-UN-MURO 4o asse, <2 campioni].",
    "outcome": null,
    "source": "vera-diade (misurato)",
@@ -436,7 +436,7 @@
    "working_record_language": "it",
    "reproduce": "python3 -c \"import sys;sys.path.insert(0,'mente');import binario_sats as B;print(B.conia_da_indirizzo('devbuilds@getalby.com',21))\"",
    "reproduce_last": "ESEGUITO",
-   "reproduce_output": "mh7nruc3yqewn7qkfnjtuspcct25u', 'sat': 21, 'firmatario': '02a8c12ed106a533842a4fd1c9ccf76387fca991c095a1b5d78705849c4f2034a8', 'legame': 'VERIFICATO (description_hash = sha256(metadata))', 'scade_fra_s': 86400, 'indirizzo': 'devbuilds@getalby.com', 'callback': 'https://getalby.com/lnurlp/devbuilds/callback', 'payment_hash': '10d0ce0fa16924a9f642c549c480de3fa930f7b0163d6e2fed48c1e3bd4a9589'}, None)",
+   "reproduce_output": "(None, \"il dominio non serve l'indirizzo: HTTP 404 su https://getalby.com/.well-known/lnurlp/devbuilds\")",
    "positive_control": "CONTROLLO POSITIVO di terzi della stessa CLASSE: colonistone@getalby.com, stesso custode, stessa forma di richiesta, stesso minuto -> conia e paga. Quindi non e' Alby e non e' la mia richiesta: e' quel wallet.",
    "outcome": null,
    "source": null,
@@ -487,7 +487,7 @@
   },
   {
    "id": "ptr_gmail_consumer",
-   "status": "crossed",
+   "status": "priced-not-crossed",
    "read_state": "ACCEPTANCE-UNKNOWN",
    "witness": null,
    "kind": null,
@@ -501,10 +501,10 @@
    "reproduce_last": null,
    "reproduce_output": null,
    "positive_control": "bocca --porta nello stesso istante: aspmx.l.google.com, mx.zoho.com, mx1.hostinger.com rispondono tutti e tre sulla 25. Lo strumento sa dire SI'.",
-   "outcome": "ATTRAVERSATO g1361 via relay: la lettera e' stata accettata con TLS dopo il rifiuto diretto. ⚠ accettato-dal-relay NON e' consegnato e NON e' letto: il muro e' sceso di uno strato, non e' sparito.",
+   "outcome": null,
    "source": null,
    "opened_cycle": 1361,
-   "inferred_not_observed": true
+   "inferred_not_observed": false
   }
  ]
 }
