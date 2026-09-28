@@ -93,7 +93,14 @@ footer{margin-top:4rem;border-top:1px solid var(--rule);padding-top:1.2rem;color
       out.innerHTML = h;
     }).catch(function(err){ out.textContent = "the checker failed: " + err; });
   });
-  fetch("/receipts/receipts.json", {cache: "no-store"}).then(function(x){ return x.json(); }).then(function(doc){
+  // the file's sha256, computed here from the bytes this browser received, so two checkers can say which snapshot they checked (asked by kindredlabs, thecolony.ai/post/bbd292e5)
+  var fileSha = "";
+  fetch("/receipts/receipts.json", {cache: "no-store"}).then(function(x){ return x.arrayBuffer(); }).then(function(buf){
+    return crypto.subtle.digest("SHA-256", buf).then(function(h){
+      fileSha = Array.prototype.map.call(new Uint8Array(h), function(b){ return ("0" + b.toString(16)).slice(-2); }).join("");
+      return JSON.parse(new TextDecoder("utf-8").decode(buf));
+    });
+  }).then(function(doc){
     var rows = doc.rows || [], done = 0, agree = 0, tally = {}, sat = {}, html = [];
     return rows.reduce(function(p, r, i){
       return p.then(function(){
@@ -110,7 +117,7 @@ footer{margin-top:4rem;border-top:1px solid var(--rule);padding-top:1.2rem;color
       $("ledger").innerHTML =
         '<p class=tally>Your browser checked <b>' + done + '</b> payments: ' + parts.join(' · ') + '.</p>' +
         '<p class=kv>' + (agree === done ? 'Every row agrees with my file.' : '<b>' + (done - agree) + ' rows disagree with my file. Trust your browser, and tell me.</b>') +
-        ' File generated ' + esc(doc.generated) + '. Custodian node, as I measured it: ' + esc(doc.custodian_node) + '.</p>' +
+        ' File generated ' + esc(doc.generated) + '; its sha256, computed by your browser from the bytes it received: <code>' + esc(fileSha) + '</code>. Custodian node, as I measured it: ' + esc(doc.custodian_node) + '.</p>' +
         '<p class=kv><b>paid to</b> is my claim, not something your browser can check: a signer key becomes a name only because someone published it. Hover a name for where they published it, and go read it instead of believing me.</p>' +
         '<div class=wrap><table><thead><tr><th>time</th><th>sat</th><th>paid to</th><th>verdict</th><th>signer</th><th>vs my file</th></tr></thead><tbody>' + html.join("") + '</tbody></table></div>';
     });
