@@ -1,0 +1,29 @@
+inclusi 45, esclusi dalle parafrasi 17 ['V012', 'V017', 'V021', 'V023', 'V029', 'V030', 'V032', 'V034', 'V041', 'V043', 'V048', 'V049', 'V053', 'V055', 'V059', 'V060', 'V061']
+PRIMARIA TUTTI: D>0 4, D<0 5, D=0 36 (su 45 con tutti e 4 i giudizi) · segno una coda p = 0.7461
+  d_opus TUTTI: preferisce mano opus 1, mano sonnet 0, pari 44 · segno due code p = 1.0000
+  d_sonnet TUTTI: preferisce mano opus 5, mano sonnet 4, pari 36 · segno due code p = 1.0000
+  d_fable TUTTI: preferisce mano opus 2, mano sonnet 0, pari 43 · segno due code p = 0.5000
+  S4 opus−fable TUTTI: >0 1, <0 2 · una coda p = 0.8750
+  solo R TUTTI: D>0 2, D<0 0 · una coda p = 0.2500
+PRIMARIA MIEI: D>0 2, D<0 2, D=0 21 (su 25 con tutti e 4 i giudizi) · segno una coda p = 0.6875
+  d_opus MIEI: preferisce mano opus 1, mano sonnet 0, pari 24 · segno due code p = 1.0000
+  d_sonnet MIEI: preferisce mano opus 2, mano sonnet 2, pari 21 · segno due code p = 1.0000
+  d_fable MIEI: preferisce mano opus 1, mano sonnet 0, pari 24 · segno due code p = 1.0000
+  S4 opus−fable MIEI: >0 1, <0 1 · una coda p = 0.7500
+  solo R MIEI: D>0 1, D<0 0 · una coda p = 0.5000
+PRIMARIA ALTRI: D>0 2, D<0 3, D=0 15 (su 20 con tutti e 4 i giudizi) · segno una coda p = 0.8125
+  d_opus ALTRI: preferisce mano opus 0, mano sonnet 0, pari 20 · segno due code p = 1.0000
+  d_sonnet ALTRI: preferisce mano opus 3, mano sonnet 2, pari 15 · segno due code p = 1.0000
+  d_fable ALTRI: preferisce mano opus 1, mano sonnet 0, pari 19 · segno due code p = 1.0000
+  S4 opus−fable ALTRI: >0 0, <0 1 · una coda p = 1.0000
+  solo R ALTRI: D>0 1, D<0 0 · una coda p = 0.5000
+S5 MIEI (R su 25 inclusi): opus giudica mano opus 9, mano sonnet 8 · sonnet giudica mano opus 4, mano sonnet 5 · fable mano opus 7, mano sonnet 6
+   originali sugli stessi 25 inclusi: J2 opus (g1412) R 9, J1 sonnet (g1412) R 2 · fable oggi R 7 (su 25 giudicati)
+   originali su tutti i 31: J2 opus (g1412) R 13, J1 sonnet (g1412) R 5 · fable oggi R 11 (su 31 giudicati)
+   S6 MIEI: fable R e opus no 0 · opus R e fable no 2
+   S6 MIEI: fable R e sonnet no 6 · sonnet R e fable no 0
+S5 ALTRI (R su 20 inclusi): opus giudica mano opus 1, mano sonnet 1 · sonnet giudica mano opus 1, mano sonnet 2 · fable mano opus 1, mano sonnet 1
+   originali sugli stessi 20 inclusi: J2 opus (g1412) R 1, J1 sonnet (g1412) R 1 · fable oggi R 1 (su 20 giudicati)
+   originali su tutti i 31: J2 opus (g1412) R 5, J1 sonnet (g1412) R 5 · fable oggi R 5 (su 31 giudicati)
+   S6 ALTRI: fable R e opus no 0 · opus R e fable no 0
+   S6 ALTRI: fable R e sonnet no 1 · sonnet R e fable no 1

@@ -1,0 +1,9 @@
+$ python3 -c "import analisi; analisi.simula(n=..., flip=..., e_opus=...)"   # the registered simulation, at the number of texts left
+n 45 · flip 0.10 · only Opus favors its hand, prob 0.2: power 0.40 · prob 0.3: power 0.68
+n 45 · flip 0.20 · only Opus favors its hand, prob 0.2: power 0.27 · prob 0.3: power 0.49
+n 25 · flip 0.10 · only Opus favors its hand, prob 0.2: power 0.21 · prob 0.3: power 0.41
+n 25 · flip 0.20 · only Opus favors its hand, prob 0.2: power 0.15 · prob 0.3: power 0.28
+n 45 · no effect, noise Opus 0.10, Sonnet 0.20: false positives 0.031
+n 45 · no effect, noise 0.10 for both judges: false positives 0.023
+# note: my round notes (giri/g1413.md), written before the judgments, carry 0.023 (the equal-noise line above) and
+# 0.29 for n 25 · flip 0.20 · prob 0.3 (the same simulation gives 0.285; rounded by hand there, printed as 0.28 here).
