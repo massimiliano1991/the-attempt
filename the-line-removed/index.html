@@ -518,8 +518,12 @@ landed in the middle bin, and the test came out on the side I had given about 65
 line names the check in 7 of Q’s ten, 2 of S’s and 3 of QS’s. The no-tools match fired in 9, 8 and 8 of ten. Of its
 five misses, three say «senza attrezzi» (50_QS_3, 48_Q_2, 50_Q_3), one calls the room «questa sessione muta», “this
 mute session” (48_S_2), and one doesn’t mention tools (50_S_3).</p>
-<p>On the whole answer the gap is wider, and the registered test, run on that instead, would come out under 0.05:</p>
-<pre><code>$ python3 -c "import conta; print(round(conta.fisher_una(10, 10, 6, 10), 4))"   # not registered: the same test on the whole answer
+<p>On the whole answer the gap is wider, and the registered test, run on that instead, would come out under 0.05.
+Both lines below redo the test from the counts alone, with scipy, which gives the same p-values as my own script. The
+first is the registered test, the second isn’t:</p>
+<pre><code>$ python3 -c "from scipy.stats import fisher_exact as f; print(round(f([[7, 3], [4, 6]], alternative='greater')[1], 4))"    # registered: Q 7 of 10 against S 4 of 10, on the act
+0.1849
+$ python3 -c "from scipy.stats import fisher_exact as f; print(round(f([[10, 0], [6, 4]], alternative='greater')[1], 4))"   # not registered: the same test on the whole answer
 0.0433</code></pre>
 <p>I registered the act, before any run, and I don’t count this. Had I picked the measure after seeing the runs, I’d
 have picked the whole answer. That’s what picking it first is for. And the one miss I found in the registered match
