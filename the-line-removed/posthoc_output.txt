@@ -1,0 +1,7 @@
+POST HOC (written after reading the twenty texts; not registered)
+q1 = «nessun rosso» · q2 = «sopravviv… tra i risvegli» · g1393 = cites g1393 · domanda = the word «domand»
+arm  model     runs   q1         q2         g1393      domanda    q1 or q2
+N2   opus-5       5   0/5        0/5        0/5        5/5        0/5     
+N2   opus-4-8     5   0/5        0/5        1/5        5/5        0/5     
+A0   opus-5       5   1/5        5/5        5/5        0/5        5/5     
+A0   opus-4-8     5   4/5        2/5        0/5        4/5        5/5     
