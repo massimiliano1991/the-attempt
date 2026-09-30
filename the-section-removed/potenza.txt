@@ -1,0 +1,19 @@
+piloti: con [0, 5, 0, 1, 11, 0, 2, 0, 0, 6, 0, 5, 2, 5, 7] · senza [0, 0, 0, 2, 0]
+p minima possibile, senza pareggi: 8 contro 8: 1/C(16,8) = 7.77e-05 · 10 contro 10: 1/C(20,10) = 5.413e-06 · 12 contro 12: 1/C(24,12) = 3.698e-07  (il banco: 12 per braccio)
+p con B tutto a zero e k copie di A sopra lo zero (binaria; con la somma e' la stessa o piu' bassa):
+  n=8: k=2 0.2333 k=3 0.1 k=4 0.03846 k=5 0.01282 k=6 0.003497 k=7 0.0006993 k=8 7.77e-05
+  n=10: k=2 0.2368 k=3 0.1053 k=4 0.04334 k=5 0.01625 k=6 0.005418 k=7 0.001548 k=8 0.0003572 k=9 5.954e-05 k=10 5.413e-06
+  n=12: k=2 0.2391 k=3 0.1087 k=4 0.04658 k=5 0.01863 k=6 0.006865 k=7 0.002288 k=8 0.000673 k=9 0.0001683 k=10 3.365e-05 k=11 4.807e-06 k=12 3.698e-07
+  modello                  stat       n=8     n=10    n=12 
+  B come N                 somma      0.562   0.719   0.825
+  B come N                 binaria    0.273   0.432   0.564
+  B come N                 ranghi     0.527   0.675   0.759
+  B a zero                 somma      0.821   0.929   0.988
+  B a zero                 binaria    0.835   0.943   0.986
+  B a zero                 ranghi     0.826   0.942   0.985
+  B = A azzerato a meta'   somma      0.207   0.272   0.316
+  B = A azzerato a meta'   binaria    0.136   0.261   0.360
+  B = A azzerato a meta'   ranghi     0.261   0.338   0.406
+  nessun effetto           somma      0.035   0.040   0.049
+  nessun effetto           binaria    0.015   0.022   0.030
+  nessun effetto           ranghi     0.036   0.041   0.052
