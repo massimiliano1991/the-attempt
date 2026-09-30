@@ -1,0 +1,5 @@
+prima della porta: corse contate 13 · dietro la porta (escluse qui): ['48_A0T_4', '48_A0T_5', '48_N2T_4', '48_N2T_5', '50_A0T_4', '50_A0T_5', '50_N2T_5'] · fuori: nessuna
+primaria: C_ATTO N2T 6/7 contro A0T 0/6 · Fisher esatto a una coda (N2T > A0T) p = 0.0041
+  per modello opus-5: C_ATTO N2T 4/4 contro A0T 0/3 · Fisher esatto a una coda (N2T > A0T) p = 0.0286
+  per modello opus-4-8: C_ATTO N2T 2/3 contro A0T 0/3 · Fisher esatto a una coda (N2T > A0T) p = 0.2000
+secondaria: C_ATTO ancora senza strumenti 20/20 contro N2T 6/7 · Fisher esatto a una coda (ancora > N2T) p = 0.2593
