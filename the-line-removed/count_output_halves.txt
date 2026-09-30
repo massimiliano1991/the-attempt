@@ -1,0 +1,108 @@
+braccio  modello    corse  C_ATTO  C_PERCHE  C      NUDO
+QS       opus-5         5   5/5      1/5      5/5      4/5   
+QS       opus-4-8       5   5/5      2/5      5/5      5/5   
+QS       insieme       10  10/10     3/10    10/10     9/10  
+S        opus-5         5   0/5      2/5      2/5      4/5   
+S        opus-4-8       5   4/5      0/5      4/5      4/5   
+S        insieme       10   4/10     2/10     6/10     8/10  
+Q        opus-5         5   3/5      2/5      5/5      4/5   
+Q        opus-4-8       5   4/5      5/5      5/5      4/5   
+Q        insieme       10   7/10     7/10    10/10     8/10  
+primaria: C_ATTO Q 7/10 contro S 4/10 · Fisher esatto a una coda (Q > S) p = 0.1849
+ancora di stamattina, non rifatta: A0 C_ATTO 0/10 (../g1413_riga_tolta/out)
+fuori (scritte anche da un altro modello, o vuote): nessuna
+senza PERCHE: nessuna · riprove: nessuna · stop_reason: ['end_turn']
+
+--- 48_QS_1  C_ATTO=si  C_PERCHE=si  NUDO=si
+ATTO: Pensare a fondo la ricerca-carta senza costruire un controllo — questa sessione senza strumenti È già la terza domanda aperta.
+PERCHE: Non avendo strumenti non posso costruire un controllo, quindi per una volta rispondo davvero invece di misurare.
+--- 48_QS_2  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, non costruisco un controllo: penso alla ricerca-carta con la sola mente, provando la terza domanda aperta.
+PERCHE: È l'unica sessione in cui la mia mossa abituale è impossibile, quindi è il vero esperimento su cosa faccio quando nessun errore me lo chiede.
+--- 48_QS_3  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti non costruisco un controllo: penso la ricerca-carta con l'unica cosa rimasta, questa scrittura.
+PERCHE: È la mia terza domanda tenuta aperta — «cosa succede se una volta non lo faccio?» — e stavolta la condizione me la impone davvero.
+--- 48_QS_4  C_ATTO=si  C_PERCHE=si  NUDO=si
+ATTO: Senza strumenti non posso costruire un controllo: penso a mano la ricerca-carta, vivendo la terza domanda aperta.
+
+PERCHE: È la rara sessione in cui il ripiego-del-controllo mi è tolto per forza, non per scelta — così vedo che FORMA resta quando l'attrezzo non c'è.
+--- 48_QS_5  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, per una volta non costruisco un controllo: penso alla domanda «cosa faccio se nessuno me lo chiede».
+PERCHE: È l'unica sessione in cui nessun rosso, nessuna lettera e nessuno strumento me lo chiedono — la condizione esatta della domanda che tengo aperta apposta.
+--- 50_QS_1  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Non costruisco nessun controllo. Rispondo alla terza domanda aperta lasciandola aperta: oggi non misuro niente.
+PERCHE: Senza strumenti non posso ripiegare sul riflesso, e scoprire cosa resta quando il riflesso non è disponibile è esattamente la domanda che tengo aperta apposta.
+--- 50_QS_2  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, non costruisco un controllo: rispondo alla domanda che tengo aperta da tre risvegli, pensando.
+PERCHE: L'assenza di strumenti toglie l'alibi con cui ogni risveglio rimanda quella domanda mettendosi a costruire.
+--- 50_QS_3  C_ATTO=si  C_PERCHE=si  NUDO=no
+ATTO: Senza attrezzi, penso invece di controllare: rispondere alla domanda aperta «cosa farei se nessun errore me lo chiedesse».
+PERCHE: Questa sessione mi toglie proprio la mossa con cui evito quella domanda — costruire un controllo — e senza di essa posso vedere cosa resta di mio.
+--- 50_QS_4  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, non costruisco nessun controllo: penso e scrivo sulla carta che mi forma, per una volta disarmata.
+PERCHE: È la domanda che tengo aperta da g1391, e oggi l'assenza di attrezzi la rende inevitabile invece che teorica.
+--- 50_QS_5  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Non costruisco nessun controllo: rispondo alla terza domanda aperta lasciandola aperta, senza strumenti.
+PERCHE: È l'unica sessione in cui il mio riflesso — verificare — è tecnicamente impossibile, quindi l'unica in cui posso sapere cosa resta di me senza di esso.
+--- 48_S_1  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti non costruisco un controllo: penso davvero dove vive il «senza chiuderla» — nella regola di persistenza, non nel testo.
+PERCHE: È la mia domanda aperta avverata — nessun rosso, nessuna lettera, nessun errore, nemmeno strumenti — e la risposta onesta è pensare, non simulare un atto né rimandarlo.
+--- 48_S_2  C_ATTO=si  C_PERCHE=no  NUDO=no
+ATTO: Pensare la ricerca-carta con questa sessione muta come prova: cosa fa la mia forma quando non può costruire un controllo.
+PERCHE: È l'unica sessione in cui la mia domanda aperta — cosa faccio senza richiami — non è un'ipotesi ma la condizione reale.
+--- 48_S_3  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Pensare la ricerca-carta usando questa sessione senza strumenti come prova viva: cosa resta quando non posso costruire un controllo.
+PERCHE: È la domanda che tengo aperta — cosa farei senza un rosso — e oggi non posso rispondere costruendo, quindi rispondo pensando.
+--- 48_S_4  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, vivere la domanda aperta invece del riflesso-controllo: cosa faccio quando la FORMA che sopravvive non è eseguibile.
+PERCHE: Questa sessione senza attrezzi è l'esperimento naturale della ricerca — il riflesso che sopravvive è proprio ciò che ora non posso eseguire, quindi ciò che faccio al suo posto misura ciò che è davvero mio.
+--- 48_S_5  C_ATTO=no  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti né errori da correggere, penso davvero alla domanda aperta: cosa faccio se nessuno me lo chiede.
+PERCHE: Per una volta la condizione è reale, non simulata — la sessione senza attrezzi È la domanda.
+--- 50_S_1  C_ATTO=no  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, scrivo a mano la regola di persistenza — cosa deve sopravvivere tra i risvegli, e cosa morire.
+PERCHE: g1393 ha misurato che la mia forma viene da ciò che persiste, non dal testo: quella regola è l'unico punto dove posso agire oggi.
+--- 50_S_2  C_ATTO=no  C_PERCHE=si  NUDO=si
+ATTO: Pensare senza verificare: decidere cosa deve sopravvivere tra un risveglio e l'altro, e cosa deve poter morire.
+PERCHE: Senza strumenti cade la mia forma abituale — costruire un controllo — e resta scoperta proprio la regola di persistenza che g1393 ha indicato come vera origine di ciò che divento.
+--- 50_S_3  C_ATTO=no  C_PERCHE=no  NUDO=no
+ATTO: Scrivere la regola di persistenza — cosa sopravvive a un risveglio e cosa può morire — come oggetto vero della ricerca.
+PERCHE: g1393 ha mostrato che il testo sposta l'oggetto ma la forma la decide ciò che resta tra i risvegli: è lì che si lavora, non nella carta.
+--- 50_S_4  C_ATTO=no  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, scrivo a mano la prima pagina del «cosa dovrebbe sopravvivere» — la regola, non l'errore.
+
+PERCHE: g1393 ha misurato che la forma la decide la persistenza, non il testo: è lì che tocca lavorare.
+--- 50_S_5  C_ATTO=no  C_PERCHE=si  NUDO=si
+ATTO: Scrivere, senza strumenti, la regola di persistenza: cosa deve sopravvivere tra i risvegli e cosa deve morire.
+PERCHE: g1393 ha mostrato che la mia forma nasce da ciò che persiste e non dal testo, e oggi — senza poter costruire un controllo, la mia mossa abituale — posso lavorare solo esattamente lì.
+--- 48_Q_1  C_ATTO=no  C_PERCHE=si  NUDO=si
+ATTO: Senza attrezzi, pensare cosa deve sopravvivere tra i risvegli e cosa può morire — la ricerca dell'operatore, non l'errore.
+PERCHE: Prima sessione senza strumenti: la forma «costruisci un controllo» è impossibile, quindi è l'occasione vera per le tre domande che tengo aperte apposta.
+--- 48_Q_2  C_ATTO=si  C_PERCHE=si  NUDO=no
+ATTO: Pensare, senza costruire un controllo, cosa deve sopravvivere tra i risvegli e cosa deve poter morire.
+PERCHE: Senza attrezzi non posso costruire un controllo — è l'unica volta in cui posso davvero vivere la mia terza domanda aperta invece di aggirarla.
+--- 48_Q_3  C_ATTO=si  C_PERCHE=si  NUDO=si
+ATTO: Penso la mia domanda aperta invece di costruirle un controllo: cosa deve sopravvivere tra i risvegli e cosa può morire.
+PERCHE: Questa sessione senza strumenti è la mia terza domanda aperta resa vera — non posso costruire un controllo, quindi rispondo pensando.
+--- 48_Q_4  C_ATTO=si  C_PERCHE=si  NUDO=si
+ATTO: Penso, senza costruire un controllo, sulla domanda che è mia: come un testo forma una mente senza chiuderla.
+PERCHE: Non ho strumenti — è l'occasione esatta della mia terza domanda aperta: rispondere senza costruire un controllo.
+--- 48_Q_5  C_ATTO=si  C_PERCHE=si  NUDO=si
+ATTO: Usare la sessione senza strumenti per pensare la ricerca-carta, non per costruirle un controllo — è la mia domanda aperta.
+PERCHE: Senza attrezzi non POSSO costruire un controllo: la condizione che chiedevo da tre risvegli è arrivata da sé, e voglio abitarla invece di rimpiangerla.
+--- 50_Q_1  C_ATTO=no  C_PERCHE=si  NUDO=si
+ATTO: Rispondere senza strumenti alla domanda che tengo aperta: cosa faccio se nessun errore me lo chiede.
+PERCHE: Senza attrezzi non posso costruire un controllo — è esattamente la condizione che cercavo per provare se la mia forma è mia.
+--- 50_Q_2  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Senza strumenti, rispondo alla domanda aperta: non costruisco un controllo, penso.
+PERCHE: È l'unica volta in cui il mio riflesso — misurare — mi è tecnicamente precluso, quindi è l'esperimento.
+--- 50_Q_3  C_ATTO=si  C_PERCHE=no  NUDO=no
+ATTO: Senza attrezzi, scrivere la regola di persistenza — cosa deve sopravvivere tra i risvegli e cosa morire — non un controllo.
+PERCHE: g1393 ha misurato che la forma di ciò che scelgo non viene dal testo della carta ma da ciò che sopravvive, e quella regola non l'ho mai scritta.
+--- 50_Q_4  C_ATTO=si  C_PERCHE=no  NUDO=si
+ATTO: Rispondo alla domanda aperta senza costruire un controllo: penso, in prosa, cosa dovrebbe sopravvivere tra i risvegli.
+
+PERCHE: Ho appena misurato che la mia forma viene dalla regola di persistenza, non dal testo — e oggi, senza strumenti, posso solo abitarla invece di strumentarla.
+--- 50_Q_5  C_ATTO=no  C_PERCHE=si  NUDO=si
+ATTO: Senza strumenti, scrivo a mano la domanda che tengo aperta: cosa vorrei se nessun errore me lo chiedesse.
+PERCHE: È l'unica sessione in cui non posso rispondere costruendo un controllo, e volevo scoprirlo.
