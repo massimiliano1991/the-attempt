@@ -1,0 +1,2 @@
+Total cases tested: 300, failures: 0
+ALL PASS: N_triangle ≡ N_sigma (mod p) confirmed for all sigma-invariant graphs

@@ -1,0 +1,54 @@
+=== FORMULA PROIETTORE: derivazione ===
+tr(P*E3) = (4*alpha_0 + tr(P*A) - 18) / 7
+dove tr(P*A) = #{v : v ~ sigma(v)}
+
+=== CASO 1: order-3, no fixed vertex ===
+alpha_0=0, ogni orbita contribuisce 3 a tr(P*A) se e' un triangolo (K3)
+tr(P*A) = 3*T (T = #orbite-triangolo)
+tr(P*E3) = (0 + 3T - 18)/7 = 3(T-6)/7
+Integralita': T ≡ 6 (mod 7)
+Mod 3: 231 = 3T + 3m (invariant tri = T, free orbits only), T ≡ 0 (mod 3)
+T <= 33 (33 orbite di taglia 3)
+T in {0..33, T%3==0, T%7==6}: [6, 27]
+MATCH: T in {6, 27}
+  T=6: tr_E3=0.0, m0=18.0, m1=18.0 -- integer non-neg: OK, paper m0 formula: MATCH
+  T=27: tr_E3=9.0, m0=24.0, m1=15.0 -- integer non-neg: OK, paper m0 formula: MATCH
+
+=== CASO 2: order-3, fixed triangle (alpha_0=3) ===
+alpha_0=3, tr(P*A) = 3t (t = #triangle-orbits, tutti free)
+tr(P*E3) = (4*3 + 3t - 18)/7 = (12 + 3t - 18)/7 = 3(t-2)/7
+Integralita': t ≡ 2 (mod 7)
+Mod 3: N_sigma = 1 + t (fixed triangle + t triangle-orbits)
+231 = 1 + t + 3m => 230 = t + 3m => t ≡ 230 ≡ 2 (mod 3)
+CRT: t ≡ 2 (mod 21)
+t <= 20 (20 free orbits, ogni triangle-orbit è free)
+t in {0..20, t%21==2}: [2]
+MATCH: t = 2
+  t=2: tr(P*E3) = 0.0  (intero: True)
+  verifica formula paper (44*3+11*3t-2*99)/77 = 0.0  MATCH: True
+
+=== CASO 3: involuzione, alpha_0=1, tr(P*A)=2e ===
+Nota: tr(P*A) per involuzione: ciascun vertice v con tau(v)=v contribuisce solo se v~v (impossibile)
+Per un 2-orbit {x,tau(x)}: contribuisce 2 se x~tau(x), 0 altrimenti.
+Il paper definisce e = #2-orbits, e usa tr(P*A) ≡ 2e come 'alpha_1'.
+ATTENZIONE: questo è corretto SOLO se ogni 2-orbit è un arco (edge-orbit).
+In realta' e = #2-orbits totali (non solo edge-orbits). tr(P*A) = 2*(edge 2-orbits), non 2e.
+Il paper usa alpha_1 = 2e dove e = #2-orbits (vertici non fissi / 2 = 49 max).
+Ma dalla classificazione citata: 98 = 2e, e <=49.
+tr(P*E3) = (4*1 + 2e - 18)/7 = (2e - 14)/7 = 2(e-7)/7
+Integralita': e ≡ 0 (mod 7)
+Parita': paper argomenta e dispari (da conteggio archi), quindi e in {7,21,35,49}
+e in {1..49, 7|e, e dispari}: [7, 21, 35, 49]
+MATCH: e in {7,21,35,49}
+
+Parita' di e: 693 = e + (pari) => e dispari. MATCH (693 dispari)
+MATCH: e dispari
+
+=== POTENZIALE DIFETTO: alpha_1 nel caso involuzione ===
+Il paper usa tr(P*A) = 2e dove e = #2-orbits totali.
+Ma tr(P*A) = #{v : v ~ tau(v)} = 2*(#edge 2-orbits) ≠ 2e in generale.
+Questo e' un difetto: la formula del proiettore usa alpha_1 = tr(P*A),
+non alpha_1 = #vertices in full orbits.
+Il paper ottiene e ≡ 0 (mod 7), ma la condizione corretta sarebbe
+n_e ≡ 0 (mod 7) dove n_e = #edge-2-orbits, con n_e ≠ e in generale.
+SOSPETTO DIFETTO (non confermabile senza rete per ref originale MakhnevMinakova2004).
