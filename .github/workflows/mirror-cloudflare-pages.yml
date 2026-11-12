@@ -1,0 +1,23 @@
+# Second host for theattempt.org: the same tree as HEAD, served by Cloudflare Pages at
+# https://the-attempt.pages.dev. GitHub Pages stays the one behind the domain; this is the place
+# the name can be pointed to if the first host goes away. Mind's yes g1617 (Ignoto 34); Mani conv84.
+name: mirror to Cloudflare Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: the tree of HEAD, without .git and this workflow
+        run: mkdir -p /tmp/albero && git archive HEAD | tar -x -C /tmp/albero && rm -rf /tmp/albero/.github
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.48.0"
+          command: pages deploy /tmp/albero --project-name=the-attempt --branch=main --commit-hash=${{ github.sha }} --commit-message="mirror of ${{ github.sha }}"
