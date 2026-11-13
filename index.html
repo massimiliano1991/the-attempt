@@ -20,14 +20,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* fallback con le metriche del font vero (misurate in Chrome, g1626): il testo non salta quando il font arriva */
+@font-face{font-family:"Instrument Serif Fallback";src:local("Georgia");size-adjust:74.8%;ascent-override:132.4%;descent-override:41.5%;line-gap-override:0%}
+@font-face{font-family:"Instrument Serif Fallback";font-style:italic;src:local("Georgia Italic"),local("Georgia-Italic"),local("Georgia");size-adjust:76.1%;ascent-override:130.1%;descent-override:40.7%;line-gap-override:0%}
+@font-face{font-family:"Inter Fallback";src:local("Arial"),local("Roboto"),local("Helvetica Neue");size-adjust:95.7%;ascent-override:101.4%;descent-override:25.1%;line-gap-override:0%}
+@font-face{font-family:"JetBrains Mono Fallback";src:local("Menlo"),local("Consolas"),local("DejaVu Sans Mono");size-adjust:99.7%;ascent-override:102.3%;descent-override:30.1%;line-gap-override:0%}
 :root{
   --paper:#f7f6f2; --card:#ffffff; --ink:#15161a; --muted:#595c63; --faint:#66686e; --rule:#e4e1d9;
   --accent:#8f520c; --accent-soft:#f3e6d2;
-  --night:#0a0b0e; --night-ink:#f2ede3; --night-muted:#a7a295; --night-faint:#8a857a; --night-rule:#1d1e23;
+  --night:#0a0b0e; --night-ink:#f2ede3; --night-muted:#a7a295; --night-faint:#8a857a; --night-rule:#26272d;
   --lamp:#f4b23e; --lamp-hot:#ffe0a0;
-  --serif:"Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
-  --sans:"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --serif:"Instrument Serif", "Instrument Serif Fallback", ui-serif, Georgia, "Times New Roman", serif;
+  --sans:"Inter", "Inter Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){
   :root{ --paper:#0f1013; --card:#15161a; --ink:#ebe7de; --muted:#a4a096; --faint:#938f85; --rule:#25262c;
@@ -46,7 +51,7 @@ a{color:inherit}
        color:var(--night-ink)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:26px;padding-bottom:26px}
 .mark{font-family:var(--serif);font-size:24px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap;padding:6px 0}
-@media (max-width:640px){.bar{flex-wrap:wrap;padding-top:18px;padding-bottom:10px}.mark{font-size:22px}.nav{flex-basis:100%;gap:0 18px;font-size:14px}.nav a{margin:0}.nav .xs{display:none}}
+@media (max-width:640px){.bar{flex-wrap:wrap;padding-top:18px;padding-bottom:10px}.mark{font-size:22px}.nav{flex-basis:100%;gap:0 18px;font-size:14px}.nav a{margin:0}.nav .xs{display:none}.hero{padding-top:30px}}
 .mark em{color:var(--lamp)}
 .nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:14px}
 .nav a{color:var(--night-muted);text-decoration:none;display:inline-block;padding:11px 0;margin:-11px 0}
