@@ -33,10 +33,10 @@ h1{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Geo
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 /* l'arrivo: la scheda sale, poi il segno si disegna; solo per chi accetta il movimento */
 @media (prefers-reduced-motion:no-preference){
-  main{animation:arrivo .5s cubic-bezier(.2,.7,.2,1) both}
+  main{animation:arrivo .45s cubic-bezier(.2,.7,.2,1) both}
   .spunta{animation:cerchio .4s cubic-bezier(.2,.7,.2,1) .15s both}
   .spunta path{stroke-dashoffset:30;animation:traccia .45s cubic-bezier(.4,0,.2,1) .4s forwards}
-  @keyframes arrivo{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes arrivo{from{opacity:.4;transform:translateY(14px)}to{opacity:1;transform:none}}
   @keyframes cerchio{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
   @keyframes traccia{to{stroke-dashoffset:0}}
 }
