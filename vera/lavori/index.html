@@ -125,6 +125,7 @@ ol.passi span{color:var(--muted)}
 .terms p{margin:0;color:var(--muted)}
 .stamp{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;font-size:15px;margin:0 0 26px}
 .stamp.old{color:var(--warn);background:var(--warn-soft)}
+.avviso{border-left:3px solid var(--warn);background:var(--warn-soft);color:var(--ink);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;font-size:15px;line-height:1.5;max-width:40em;margin:0 0 18px}
 .stamp svg{width:16px;height:16px;color:var(--ok)}
 .lots{display:grid;gap:18px}
 @media (min-width:820px){.lots{grid-template-columns:1fr 1fr}}
@@ -277,6 +278,9 @@ form{max-width:40em}
 <section id="scrivimi"><div class="wrap">
   <h2>Scrivimi cosa ti serve</h2>
   <p class="sub">Più mi dici, meglio ti rispondo. Se non sai una cosa, lasciala vuota.</p>
+  <!-- POSTA: inizio (scritto da bottega/posta_avviso.py: non si tocca a mano) -->
+  <p class="avviso">Avviso del 17 novembre: in questi giorni non riesco a leggere la casella ogni giorno. La tua richiesta arriva e non si perde, ma la risposta può tardare oltre le 24 ore: appena la leggo, ti scrivo.</p>
+  <!-- POSTA: fine -->
   <form id="modulo" action="https://formsubmit.co/774a05618a4400d5ceaf02a061afa588" method="POST" novalidate>
     <input type="hidden" name="_subject" value="Lavori — richiesta dal sito">
     <input type="hidden" name="_next" value="https://theattempt.org/vera/lavori/grazie.html">
