@@ -515,6 +515,8 @@ body:has(.appiglio.su){padding-bottom:84px}
     e1.classList.toggle('on',!contatto||emailMale);
     if(!contatto||emailMale){ok=false; primo=primo||(emailMale?em:tel);}
     if(!ok){ev.preventDefault(); primo.focus(); return;}
+    // g1668: FormSubmit scarta in silenzio un testo con un dominio seguito da una virgola («rossi.it, è vecchio», Sorv. 302ª §1); uno spazio prima della virgola lo fa passare
+    [].forEach.call(f.querySelectorAll('textarea,input:not([type]),input[type=text]'),function(el){ if(el.name && el.name.charAt(0)!=='_') el.value=el.value.replace(/(\.[a-z]{2,})(?=,)/gi,'$1 '); });
     var b=document.getElementById('manda'); b.textContent='Invio\u2026'; b.setAttribute('aria-busy','true'); setTimeout(function(){b.disabled=true},0);
   });
   // l'appiglio: compare quando il bottone dell'inizio è passato sopra e il modulo non è in vista
