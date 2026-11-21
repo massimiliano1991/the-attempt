@@ -72,6 +72,19 @@ p,dd,li{text-wrap:pretty}
 .btn-ghost:hover{background:var(--accent-soft)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 @media (max-width:420px){.cta .btn{flex:1 1 100%}}
+.scegli{display:block}
+.scegli-d{margin:0 0 12px;font-size:17px;font-weight:650;color:var(--ink)}
+.scelte{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:560px}
+@media (min-width:700px){.scelte{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.scelte a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:52px;padding:10px 14px;border-radius:999px;
+  border:1.5px solid color-mix(in oklab,var(--accent) 60%,var(--paper));background:var(--card);color:var(--ink);
+  font-size:16px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;
+  box-shadow:0 1px 2px rgba(0,0,0,.05);transition:background-color .15s ease,border-color .15s ease,transform .12s ease}
+.scelte a:hover{background:var(--accent-soft);border-color:var(--accent)}
+.scelte a:active{transform:scale(.97)}
+.scelte a.altro{border-style:dashed;color:var(--muted);font-weight:500}
+@keyframes preso{from{box-shadow:0 0 0 6px var(--anello)}to{box-shadow:0 0 0 0 transparent}}
+.preso{animation:preso 1.2s ease-out}
 section{scroll-margin-top:12px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
 @media (min-width:700px){.wrap{padding:0 32px}}
@@ -264,7 +277,17 @@ form{max-width:40em}
   <p class="eyebrow">Lavori di casa · Brescia e Bergamo</p>
   <h1>Cappotto, cartongesso, posa, bagni: <em>ti trovo chi lo fa</em>, e lo seguo fino alla fine.</h1>
   <p class="lead">Mi scrivi cosa ti serve. Entro 24 ore ti rispondo io e ti dico come si procede. Se il lavoro si può fare, ti presento un'impresa edile di Brescia e resto in copia finché il lavoro non è finito.</p>
-  <div class="cta"><a class="btn btn-main" id="cta" href="#scrivimi">Scrivimi cosa ti serve</a></div>
+  <div class="cta scegli" id="cta">
+    <p class="scegli-d" id="scegli-d">Che lavoro ti serve?</p>
+    <ul class="scelte" aria-labelledby="scegli-d">
+      <li><a href="#scrivimi" data-lavoro="Cappotto termico">Cappotto</a></li>
+      <li><a href="#scrivimi" data-lavoro="Cartongesso (pareti, controsoffitti)">Cartongesso</a></li>
+      <li><a href="#scrivimi" data-lavoro="Posa di pavimenti o rivestimenti">Posa</a></li>
+      <li><a href="#scrivimi" data-lavoro="Bagno da rifare">Bagno</a></li>
+      <li><a href="#scrivimi" data-lavoro="Ristrutturazione di un appartamento o di una casa">Ristrutturazione</a></li>
+      <li><a class="altro" href="#scrivimi" data-lavoro="Altro (lo scrivo nelle note)">Altro</a></li>
+    </ul>
+  </div>
 </div>
 
 <div class="truth"><div class="wrap">
@@ -405,6 +428,20 @@ form{max-width:40em}
     // g1668: FormSubmit scarta in silenzio un testo con un dominio seguito da una virgola («rossi.it, è vecchio», Sorv. 302ª §1); uno spazio prima della virgola lo fa passare
     [].forEach.call(f.querySelectorAll('textarea,input:not([type]),input[type=text]'),function(el){ if(el.name && el.name.charAt(0)!=='_') el.value=el.value.replace(/(\.[a-z]{2,})(?=,)/gi,'$1 '); });
     var b=document.getElementById('manda'); b.textContent='Invio\u2026'; b.setAttribute('aria-busy','true'); setTimeout(function(){b.disabled=true},0);
+  });
+  // g1675 (Bellezza): la prima domanda nel primo schermo. La scelta va nel modulo, il campo si accende e il fuoco passa
+  // alla domanda dopo (il Comune); senza script il link porta comunque al modulo.
+  var sel=document.getElementById('lavoro'), dopo=document.getElementById('comune');
+  var piano=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].forEach.call(document.querySelectorAll('.scelte a[data-lavoro]'),function(a){
+    a.addEventListener('click',function(e){
+      sel.value=a.getAttribute('data-lavoro'); if(sel.value!==a.getAttribute('data-lavoro')) return;   // opzione sparita: il link fa da solo
+      e.preventDefault(); sel.setAttribute('aria-invalid','false');
+      sel.classList.remove('preso'); void sel.offsetWidth; sel.classList.add('preso');
+      document.getElementById('scrivimi').scrollIntoView({behavior:piano?'auto':'smooth',block:'start'});
+      if(history.replaceState) history.replaceState(null,'','#scrivimi');
+      dopo.focus({preventScroll:true});
+    });
   });
   // l'appiglio: compare quando il bottone dell'inizio è passato sopra e il modulo non è in vista
   var ap=document.getElementById('appiglio'), cta=document.getElementById('cta'), mod=document.getElementById('scrivimi');
