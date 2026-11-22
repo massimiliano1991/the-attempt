@@ -91,8 +91,10 @@ h1 em{font-style:italic;color:var(--accent)}
 @media (min-width:360px){h1 em{white-space:nowrap}}
 .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:36em;margin:0 0 26px}
 .hero p a,.after-lots a,.alt a,.hint a,.small a,.faq a,footer a{padding-block:13px}
-.truth{background:var(--band);color:var(--band-ink)}
-.truth .wrap{display:flex;gap:14px;align-items:flex-start;padding-top:22px;padding-bottom:22px}
+.truth{color:var(--band-ink);padding-inline:16px}
+.truth .wrap{display:flex;gap:14px;align-items:flex-start;padding:20px 20px 22px;max-width:1016px;background:var(--band);border-radius:18px}
+@media (min-width:700px){.truth{padding-inline:32px}.truth .wrap{padding:26px 28px 28px}}
+@media (max-width:1099.98px) and (prefers-color-scheme:dark){.truth .wrap{border:1px solid color-mix(in oklch,var(--band-ink) 16%,transparent)}}
 .truth svg{flex:0 0 auto;width:26px;height:26px;margin-top:2px;color:#e8a283}
 .truth p{margin:0;font-size:17px;line-height:1.5;max-width:52em}
 .truth strong{color:#fff}
@@ -102,8 +104,8 @@ h1 em{font-style:italic;color:var(--accent)}
   main>*{grid-column:1/-1}
   main>.hero{grid-column:2;grid-row:1;max-width:none;margin:0;padding-left:0;padding-right:48px}
   main>.hero h1{font-size:58px}
-  main>.truth{grid-column:3;grid-row:1;align-self:center;border-radius:20px;box-shadow:0 18px 40px -24px rgb(40 30 20 / .45)}
-  main>.truth .wrap{flex-direction:column;gap:12px;max-width:none;margin:0;padding:28px 30px 32px}
+  main>.truth{grid-column:3;grid-row:1;align-self:start;margin-top:var(--testa,90px);padding-inline:0;background:var(--band);border-radius:20px;box-shadow:0 18px 40px -24px rgb(40 30 20 / .45)}
+  main>.truth .wrap{flex-direction:column;gap:12px;max-width:none;margin:0;padding:28px 30px 32px;background:none;border-radius:0}
   main>.truth p{font-size:16.5px;line-height:1.55}
 }
 @media (min-width:1100px) and (prefers-color-scheme:dark){main>.truth{border:1px solid color-mix(in oklch,var(--band-ink) 16%,transparent);box-shadow:none}}
