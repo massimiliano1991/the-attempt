@@ -220,6 +220,43 @@ label .hint{display:block;font-weight:400;margin:2px 0 0}
 .err::before{content:"!";flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--bad);color:#fff;font-size:13px;line-height:20px;text-align:center;margin-top:1px}
 .trap,.honey{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 form .btn{width:100%}
+form.a-passi{gap:18px}
+form.a-passi .via{display:none}
+form.a-passi .due:has(> .via){grid-template-columns:1fr}
+form.a-passi .due:not(:has(> :not(.via))){display:none}
+form.a-passi label,form.a-passi .domanda{font-size:19px;font-weight:650;line-height:1.3;margin:0 0 10px;letter-spacing:-.005em;text-wrap:balance}
+form.a-passi label .hint{font-size:14.5px;font-weight:400;letter-spacing:0;margin-top:4px}
+form.a-passi.molti label{font-size:17px}
+form.a-passi{scroll-margin-top:16px}
+@media (min-width:700px){form.a-passi{max-width:680px}
+  form.a-passi .passi-nav .btn{flex:0 0 auto;min-width:132px}
+  form.a-passi .passi-nav #passi-avanti,form.a-passi .passi-nav #manda{margin-left:auto;min-width:240px}}
+.passi-testa{display:flex;align-items:center;gap:12px;margin:0 0 2px}
+.passi-barra{flex:1;height:6px;border-radius:999px;background:color-mix(in oklab,var(--rule) 75%,var(--paper));overflow:hidden}
+.passi-barra i{display:block;height:100%;width:calc(var(--fatto,0) * 100%);min-width:6px;background:var(--accent);border-radius:inherit;transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.passi-conta{font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.risposte{display:grid;gap:10px}
+@media (min-width:560px){.risposte{grid-template-columns:1fr 1fr}}
+.risposte button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:12px 16px;text-align:left;
+  font:inherit;font-size:16.5px;font-weight:600;line-height:1.25;color:var(--ink);background:var(--paper);cursor:pointer;
+  border:1.5px solid var(--rule);border-radius:12px;transition:background-color .15s ease,border-color .15s ease,transform .12s ease}
+.risposte button::before{content:"";flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:2px solid color-mix(in oklab,var(--accent) 55%,var(--rule));background:var(--card);transition:border-width .15s ease,border-color .15s ease}
+.risposte button:hover{border-color:color-mix(in oklab,var(--accent) 60%,var(--rule));background:var(--card)}
+.risposte button:active{transform:scale(.985)}
+.risposte button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.risposte button[aria-pressed="true"]::before{border:6px solid var(--accent)}
+select[aria-invalid="true"] + .risposte button{border-color:var(--bad)}
+.passi-nav{display:flex;gap:10px;align-items:stretch}
+.passi-nav .btn{width:auto;flex:1 1 auto}
+.passi-nav .indietro{flex:0 0 auto;padding-inline:20px;border-color:var(--rule);color:var(--muted);background:transparent}
+.passi-nav .indietro:hover{border-color:var(--accent);color:var(--accent);background:transparent}
+.passi-nav [hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){
+  form.a-passi .entra{animation:entra .26s cubic-bezier(.2,.7,.2,1) both}
+  form.a-passi.torna .entra{animation-name:torna}
+  @keyframes entra{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+  @keyframes torna{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+}
 .promise{font-size:17px;margin:0 0 18px}
 .alt{margin:0;color:var(--muted)}
 .why{display:grid;gap:22px;list-style:none;margin:0;padding:0}
@@ -418,7 +455,67 @@ form{max-width:40em}
 <script>
 (function(){
   var f=document.getElementById('modulo'), err=document.getElementById('err');
+  // g1681 (Bellezza): il modulo a una domanda per schermo. Le domande sono le stesse, con le stesse parole e gli stessi
+  // campi spediti; lo script le mostra una per volta. Senza script, o se un campo manca, il modulo resta intero.
+  var passi=(function(){
+    var P=[['lavoro'],['comune'],['quando'],['misura'],['chi'],['nome','email','telefono'],['note']];
+    var tutti=[].concat.apply([],P), box={}, ok=true;
+    tutti.forEach(function(id){ var el=document.getElementById(id); if(!el){ok=false;return;} box[id]=el.closest('.due > div')||el.closest('#modulo > div'); if(!box[id]) ok=false; });
+    if(!ok || !f.closest || !window.CSS || !CSS.supports('selector(:has(*))')) return null;
+    var manda=document.getElementById('manda'), small=f.querySelector(':scope > .small'), cur=0, avviato=false, piano=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // le scelte singole diventano risposte da toccare; il select resta nel modulo e porta la risposta
+    tutti.forEach(function(id){
+      var sel=document.getElementById(id); if(sel.tagName!=='SELECT') return;
+      var lab=f.querySelector('label[for="'+id+'"]'); lab.id='d-'+id;
+      var g=document.createElement('div'); g.className='risposte'; g.setAttribute('role','group'); g.setAttribute('aria-labelledby','d-'+id); g.setAttribute('data-per',id);
+      [].forEach.call(sel.options,function(o){ if(!o.value) return;
+        var b=document.createElement('button'); b.type='button'; b.textContent=o.text; b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){ sel.value=o.value; sel.setAttribute('aria-invalid','false'); segna(); togliErr();
+          setTimeout(function(){ if(P[cur].indexOf(id)>=0) vai(cur+1); }, piano?60:200); });
+        g.appendChild(b); });
+      sel.hidden=true; sel.tabIndex=-1; sel.after(g);
+    });
+    function segna(){ [].forEach.call(f.querySelectorAll('.risposte'),function(g){ var v=document.getElementById(g.getAttribute('data-per')).value;
+      [].forEach.call(g.children,function(b){ b.setAttribute('aria-pressed',String(b.textContent===v)); }); }); }
+    var testa=document.createElement('div'); testa.className='passi-testa';
+    testa.innerHTML='<div class="passi-barra" aria-hidden="true"><i></i></div><span class="passi-conta" aria-live="polite"></span>';
+    var nav=document.createElement('div'); nav.className='passi-nav';
+    nav.innerHTML='<button type="button" class="btn indietro" id="passi-indietro">Indietro</button><button type="button" class="btn btn-main" id="passi-avanti">Avanti</button>';
+    f.insertBefore(testa, box[P[0][0]]); err.after(nav); nav.appendChild(manda);
+    var ind=nav.children[0], av=nav.children[1];
+    function chiesti(i){ return P[i].filter(function(id){ return document.getElementById(id).required; }); }
+    function valido(id){ var v=(document.getElementById(id).value||'').trim(); return v.length>0 && (id!=='email' || /.+@.+\..+/.test(v)); }
+    function togliErr(){ if(!f.querySelector('[aria-invalid="true"]')) err.classList.remove('on'); }
+    function vai(i,senzaStoria,tornando){
+      i=Math.max(0,Math.min(P.length-1,i)); var giu=i>cur; cur=i;
+      f.classList.toggle('torna',!!tornando || (!giu && !senzaStoria));
+      tutti.forEach(function(id){ var su=P[i].indexOf(id)>=0; box[id].classList.toggle('via',!su); box[id].classList.remove('entra'); if(su && avviato){ void box[id].offsetWidth; box[id].classList.add('entra'); } });
+      var ultimo=i===P.length-1; f.classList.toggle('molti',P[i].length>1);
+      ind.hidden=i===0; av.hidden=ultimo; manda.hidden=!ultimo; if(small) small.classList.toggle('via',i<P.length-2);
+      testa.querySelector('i').style.setProperty('--fatto',(i+1)/P.length);
+      testa.querySelector('.passi-conta').textContent=(i+1)+' di '+P.length;
+      err.classList.remove('on'); segna();
+      if(!senzaStoria && history.pushState) history.pushState({passo:i},'','#scrivimi');
+      if(!avviato) return;
+      var r=f.getBoundingClientRect(); if(r.top<0 || r.top>innerHeight*0.45) f.scrollIntoView({behavior:piano?'auto':'smooth',block:'start'});
+      var primo=document.getElementById(P[i][0]);
+      if(primo.tagName==='SELECT'){ var b=f.querySelector('.risposte[data-per="'+P[i][0]+'"] [aria-pressed="true"]')||f.querySelector('.risposte[data-per="'+P[i][0]+'"] button'); if(giu||tornando) b.focus({preventScroll:true}); }
+      else if(giu || tornando) primo.focus({preventScroll:true});
+    }
+    function avanti(){ var bad=chiesti(cur).filter(function(id){ return !valido(id); });
+      chiesti(cur).forEach(function(id){ document.getElementById(id).setAttribute('aria-invalid',bad.indexOf(id)>=0?'true':'false'); });
+      if(bad.length){ err.classList.add('on'); var el=document.getElementById(bad[0]); if(el.tagName==='SELECT') f.querySelector('.risposte[data-per="'+bad[0]+'"] button').focus(); else el.focus(); return; }
+      vai(cur+1); }
+    av.addEventListener('click',avanti);
+    ind.addEventListener('click',function(){ vai(cur-1,false,true); });
+    window.addEventListener('popstate',function(e){ var i=(e.state && typeof e.state.passo==='number')?e.state.passo:0; if(i!==cur) vai(i,true,i<cur); });
+    tutti.forEach(function(id){ document.getElementById(id).addEventListener('input',function(){ if(this.getAttribute('aria-invalid')==='true' && valido(id)){ this.setAttribute('aria-invalid','false'); togliErr(); } }); });
+    f.classList.add('a-passi'); vai(0,true); avviato=true;
+    if(history.replaceState) history.replaceState({passo:0},'',location.href);
+    return {get cur(){return cur;}, ultimo:P.length-1, avanti:avanti, vai:vai, dove:function(id){ for(var i=0;i<P.length;i++) if(P[i].indexOf(id)>=0) return i; return 0; }};
+  })();
   f.addEventListener('submit',function(e){
+    if(passi && passi.cur<passi.ultimo){ e.preventDefault(); passi.avanti(); return; }   // Invio in un campo = Avanti
     var bad=[];
     ['lavoro','comune','nome','email'].forEach(function(id){
       var el=document.getElementById(id), v=(el.value||'').trim();
@@ -427,7 +524,7 @@ form{max-width:40em}
       if(!ok) bad.push(el);
     });
     err.classList.toggle('on',bad.length>0);
-    if(bad.length){ e.preventDefault(); bad[0].focus(); return; }
+    if(bad.length){ e.preventDefault(); if(passi){ passi.vai(passi.dove(bad[0].id)); err.classList.add('on'); } bad[0].tagName==='SELECT' && passi ? f.querySelector('.risposte[data-per="'+bad[0].id+'"] button').focus() : bad[0].focus(); return; }
     // g1668: FormSubmit scarta in silenzio un testo con un dominio seguito da una virgola («rossi.it, è vecchio», Sorv. 302ª §1); uno spazio prima della virgola lo fa passare
     [].forEach.call(f.querySelectorAll('textarea,input:not([type]),input[type=text]'),function(el){ if(el.name && el.name.charAt(0)!=='_') el.value=el.value.replace(/(\.[a-z]{2,})(?=,)/gi,'$1 '); });
     var b=document.getElementById('manda'); b.textContent='Invio\u2026'; b.setAttribute('aria-busy','true'); setTimeout(function(){b.disabled=true},0);
@@ -440,6 +537,7 @@ form{max-width:40em}
     a.addEventListener('click',function(e){
       sel.value=a.getAttribute('data-lavoro'); if(sel.value!==a.getAttribute('data-lavoro')) return;   // opzione sparita: il link fa da solo
       e.preventDefault(); sel.setAttribute('aria-invalid','false');
+      if(passi){ passi.vai(1); return; }   // g1681: con i passi la risposta è presa e si va alla domanda dopo
       sel.classList.remove('preso'); void sel.offsetWidth; sel.classList.add('preso');
       document.getElementById('scrivimi').scrollIntoView({behavior:piano?'auto':'smooth',block:'start'});
       if(history.replaceState) history.replaceState(null,'','#scrivimi');
