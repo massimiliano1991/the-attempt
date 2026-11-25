@@ -196,6 +196,15 @@ ol.passi span{color:var(--muted)}
 .scelte a:hover{background:var(--accent-soft);border-color:var(--accent)}
 .scelte a:active{transform:scale(.97)}
 .scelte a.altro{border-style:dashed;color:var(--muted);font-weight:500}
+.scelte a::after{content:"";flex:0 0 auto;width:14px;height:14px;margin-right:-2px;background:var(--accent);opacity:.85;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8h10M8.5 3.5 13 8l-4.5 4.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8h10M8.5 3.5 13 8l-4.5 4.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition:transform .17s cubic-bezier(.2,.7,.2,1)}
+.scelte a.altro::after{background:var(--muted);opacity:.7}
+.scelte a:hover::after,.scelte a.va::after{transform:translateX(3px);opacity:1}
+.scelte a.va{background:var(--accent-soft);border-color:var(--accent)}
+.scelte a,.risposte button{-webkit-tap-highlight-color:transparent}
+@media (max-width:420px){.scelte a{padding-inline:10px}}
 @keyframes preso{from{box-shadow:0 0 0 6px var(--anello)}to{box-shadow:0 0 0 0 transparent}}
 .preso{animation:preso 1.2s ease-out}
 .form-grid{display:grid;gap:28px}
@@ -239,6 +248,9 @@ form.a-passi{scroll-margin-top:16px}
 .passi-barra{flex:1;height:6px;border-radius:999px;background:color-mix(in oklab,var(--rule) 75%,var(--paper));overflow:hidden}
 .passi-barra i{display:block;height:100%;width:calc(var(--fatto,0) * 100%);min-width:6px;background:var(--accent);border-radius:inherit;transition:width .4s cubic-bezier(.2,.7,.2,1)}
 .passi-conta{font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.passi-filo{display:flex;align-items:flex-start;gap:8px;margin:-8px 0 0;font-size:14px;line-height:1.4;color:var(--muted);text-wrap:pretty}
+.passi-filo::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:1px;border-radius:50%;background:var(--accent-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.passi-filo[hidden]{display:none}
 .risposte{display:grid;gap:10px}
 @media (min-width:560px){.risposte{grid-template-columns:1fr 1fr}}
 .risposte button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:12px 16px;text-align:left;
@@ -485,7 +497,9 @@ form{max-width:40em}
     testa.innerHTML='<div class="passi-barra" aria-hidden="true"><i></i></div><span class="passi-conta" aria-live="polite"></span>';
     var nav=document.createElement('div'); nav.className='passi-nav';
     nav.innerHTML='<button type="button" class="btn indietro" id="passi-indietro">Indietro</button><button type="button" class="btn btn-main" id="passi-avanti">Avanti</button>';
-    f.insertBefore(testa, box[P[0][0]]); err.after(nav); nav.appendChild(manda);
+    // g1690: il filo delle risposte brevi già date, sotto la barra (Instapro: il lavoro scelto resta in vista)
+    var filo=document.createElement('p'); filo.className='passi-filo'; filo.hidden=true;
+    f.insertBefore(testa, box[P[0][0]]); f.insertBefore(filo, box[P[0][0]]); err.after(nav); nav.appendChild(manda);
     var ind=nav.children[0], av=nav.children[1];
     function chiesti(i){ return P[i].filter(function(id){ return document.getElementById(id).required; }); }
     function valido(id){ var v=(document.getElementById(id).value||'').trim(); return v.length>0 && (id!=='email' || /.+@.+\..+/.test(v)); }
@@ -498,6 +512,8 @@ form{max-width:40em}
       ind.hidden=i===0; av.hidden=ultimo; manda.hidden=!ultimo; if(small) small.classList.toggle('via',i<P.length-2);
       testa.querySelector('i').style.setProperty('--fatto',(i+1)/P.length);
       testa.querySelector('.passi-conta').textContent=(i+1)+' di '+P.length;
+      var dati=[]; for(var k=0;k<i && k<5;k++) P[k].forEach(function(id){ var v=(document.getElementById(id).value||'').trim(); if(v) dati.push(v); });
+      filo.textContent=dati.join(' \u00b7 '); filo.hidden=!dati.length;
       err.classList.remove('on'); segna();
       if(!senzaStoria && history.pushState) history.pushState({passo:i},'','#scrivimi');
       if(!avviato) return;
@@ -541,7 +557,7 @@ form{max-width:40em}
     a.addEventListener('click',function(e){
       sel.value=a.getAttribute('data-lavoro'); if(sel.value!==a.getAttribute('data-lavoro')) return;   // opzione sparita: il link fa da solo
       e.preventDefault(); sel.setAttribute('aria-invalid','false');
-      if(passi){ passi.vai(1); return; }   // g1681: con i passi la risposta è presa e si va alla domanda dopo
+      if(passi){ a.classList.add('va'); setTimeout(function(){ passi.vai(1); a.classList.remove('va'); }, piano?0:170); return; }   // g1681: con i passi la risposta è presa e si va alla domanda dopo; g1690: prima la pillola si accende
       sel.classList.remove('preso'); void sel.offsetWidth; sel.classList.add('preso');
       document.getElementById('scrivimi').scrollIntoView({behavior:piano?'auto':'smooth',block:'start'});
       if(history.replaceState) history.replaceState(null,'','#scrivimi');
