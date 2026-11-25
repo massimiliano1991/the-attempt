@@ -216,7 +216,7 @@ form{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);
 label{display:block;font-weight:600;font-size:15.5px;margin:0 0 6px}
 label .opt{font-weight:400;color:var(--faint)}
 input,select,textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:10px;padding:12px 14px;min-height:52px;transition:border-color .15s,box-shadow .15s,background-color .15s}
-input:hover,select:hover,textarea:hover{border-color:color-mix(in srgb,var(--rule) 40%,var(--accent))}
+@media (hover:hover){input:hover,select:hover,textarea:hover{border-color:color-mix(in srgb,var(--rule) 40%,var(--accent))}}
 textarea{min-height:110px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid transparent;outline-offset:1px;border-color:var(--ink);background:var(--card);box-shadow:0 0 0 4px var(--anello)}
 input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--bad);border-width:2px;box-shadow:0 0 0 4px color-mix(in srgb,var(--bad) 18%,transparent)}
@@ -257,7 +257,8 @@ form.a-passi{scroll-margin-top:16px}
   font:inherit;font-size:16.5px;font-weight:600;line-height:1.25;color:var(--ink);background:var(--paper);cursor:pointer;
   border:1.5px solid var(--rule);border-radius:12px;transition:background-color .15s ease,border-color .15s ease,transform .12s ease}
 .risposte button::before{content:"";flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:2px solid color-mix(in oklab,var(--accent) 55%,var(--rule));background:var(--card);transition:border-width .15s ease,border-color .15s ease}
-.risposte button:hover{border-color:color-mix(in oklab,var(--accent) 60%,var(--rule));background:var(--card)}
+@media (hover:hover){.risposte button:hover{border-color:color-mix(in oklab,var(--accent) 60%,var(--rule));background:var(--card)}}
+form.a-passi label[tabindex="-1"]:focus{outline:none}
 .risposte button:active{transform:scale(.985)}
 .risposte button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
 .risposte button[aria-pressed="true"]::before{border:6px solid var(--accent)}
@@ -265,7 +266,7 @@ select[aria-invalid="true"] + .risposte button{border-color:var(--bad)}
 .passi-nav{display:flex;gap:10px;align-items:stretch}
 .passi-nav .btn{width:auto;flex:1 1 auto}
 .passi-nav .indietro{flex:0 0 auto;padding-inline:20px;border-color:var(--rule);color:var(--muted);background:transparent}
-.passi-nav .indietro:hover{border-color:var(--accent);color:var(--accent);background:transparent}
+@media (hover:hover){.passi-nav .indietro:hover{border-color:var(--accent);color:var(--accent);background:transparent}}
 .passi-nav [hidden]{display:none}
 @media (prefers-reduced-motion:no-preference){
   form.a-passi .entra{animation:entra .26s cubic-bezier(.2,.7,.2,1) both}
