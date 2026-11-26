@@ -308,6 +308,37 @@ footer .small{font-size:13.5px;color:#a69e92}
 footer .back{margin-top:26px;padding-top:12px;border-top:1px solid #3d3732;display:flex;flex-wrap:wrap;align-items:center;column-gap:30px;row-gap:0}
 footer .back span{margin-left:auto}
 @media (max-width:819px){footer .back span{flex-basis:100%;margin-left:0;padding-top:4px}}
+.anatomia{display:grid;gap:14px}
+.tel-pannello{margin:0;position:relative;overflow:hidden;border-radius:var(--r);height:338px;display:flex;justify-content:center;
+  background:radial-gradient(120% 90% at 50% 100%,color-mix(in oklch,var(--accent-soft) 60%,var(--card)),var(--accent-soft))}
+.tel{--sito:#4d6a32;width:244px;height:470px;margin-top:34px;flex:0 0 auto;box-sizing:border-box;border:9px solid #1d1a17;border-radius:40px;
+  background:#1d1a17;box-shadow:0 28px 50px -24px rgba(40,24,12,.55);position:relative}
+.tel::before{content:"";position:absolute;top:6px;left:50%;width:70px;height:19px;margin-left:-35px;border-radius:999px;background:#1d1a17;z-index:2}
+.tel-schermo{height:100%;border-radius:31px;overflow:hidden;background:#fbf8f2;color:#1d1a17;font-family:var(--sans);line-height:1.25}
+.tel-foto{display:block;width:100%;height:132px}
+.tel-corpo{padding:13px 15px 0}
+.tel-nome{font-family:var(--serif);font-size:22px;letter-spacing:-.01em;margin:0}
+.tel-paese{font-size:12.5px;color:#57524b;margin:2px 0 12px}
+.tel-tasti{display:flex;gap:7px;margin:0 0 12px}
+.tel-tasti span{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;height:34px;border-radius:999px;font-size:13px;font-weight:650;
+  border:1.5px solid var(--sito);color:var(--sito)}
+.tel-tasti span:first-child{background:var(--sito);color:#fff}
+.tel-tasti svg{width:13px;height:13px}
+.tel-righe{list-style:none;margin:0;padding:0;font-size:14px;font-weight:600}
+.tel-righe li{display:flex;justify-content:space-between;align-items:center;padding:10px 1px;border-top:1px solid #e6dfd3}
+.tel-righe li::after{content:"›";font-size:18px;line-height:1;color:#8a8379;font-weight:400}
+@media (prefers-color-scheme:dark){.tel,.tel::before{border-color:#000;background:#000}
+  .tel{box-shadow:0 0 0 1px rgba(255,255,255,.12),0 28px 50px -24px rgba(0,0,0,.8)}
+  .tel-pannello{background:radial-gradient(110% 80% at 50% 95%,#563a26,#2f241c)}}
+@media (min-width:960px){
+  .anatomia{grid-template-columns:minmax(0,380px) minmax(0,1fr);align-items:stretch}
+  .anatomia .grid{grid-template-columns:1fr 1fr;align-content:start}
+  .tel-pannello{height:auto;min-height:440px;contain:size}
+  .tel{width:256px;height:620px;margin-top:44px}}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
+  .tel{animation:tel-sale linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+  @keyframes tel-sale{from{transform:translateY(34px)}to{transform:none}}
+}}
 .appiglio{position:fixed;left:0;right:0;bottom:0;z-index:5;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
 .appiglio.su{transform:none}
 .appiglio .btn{width:100%}

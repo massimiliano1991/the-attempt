@@ -308,6 +308,37 @@ footer .small{font-size:13.5px;color:#a69e92}
 footer .back{margin-top:26px;padding-top:12px;border-top:1px solid #3d3732;display:flex;flex-wrap:wrap;align-items:center;column-gap:30px;row-gap:0}
 footer .back span{margin-left:auto}
 @media (max-width:819px){footer .back span{flex-basis:100%;margin-left:0;padding-top:4px}}
+.anatomia{display:grid;gap:14px}
+.tel-pannello{margin:0;position:relative;overflow:hidden;border-radius:var(--r);height:338px;display:flex;justify-content:center;
+  background:radial-gradient(120% 90% at 50% 100%,color-mix(in oklch,var(--accent-soft) 60%,var(--card)),var(--accent-soft))}
+.tel{--sito:#4d6a32;width:244px;height:470px;margin-top:34px;flex:0 0 auto;box-sizing:border-box;border:9px solid #1d1a17;border-radius:40px;
+  background:#1d1a17;box-shadow:0 28px 50px -24px rgba(40,24,12,.55);position:relative}
+.tel::before{content:"";position:absolute;top:6px;left:50%;width:70px;height:19px;margin-left:-35px;border-radius:999px;background:#1d1a17;z-index:2}
+.tel-schermo{height:100%;border-radius:31px;overflow:hidden;background:#fbf8f2;color:#1d1a17;font-family:var(--sans);line-height:1.25}
+.tel-foto{display:block;width:100%;height:132px}
+.tel-corpo{padding:13px 15px 0}
+.tel-nome{font-family:var(--serif);font-size:22px;letter-spacing:-.01em;margin:0}
+.tel-paese{font-size:12.5px;color:#57524b;margin:2px 0 12px}
+.tel-tasti{display:flex;gap:7px;margin:0 0 12px}
+.tel-tasti span{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;height:34px;border-radius:999px;font-size:13px;font-weight:650;
+  border:1.5px solid var(--sito);color:var(--sito)}
+.tel-tasti span:first-child{background:var(--sito);color:#fff}
+.tel-tasti svg{width:13px;height:13px}
+.tel-righe{list-style:none;margin:0;padding:0;font-size:14px;font-weight:600}
+.tel-righe li{display:flex;justify-content:space-between;align-items:center;padding:10px 1px;border-top:1px solid #e6dfd3}
+.tel-righe li::after{content:"›";font-size:18px;line-height:1;color:#8a8379;font-weight:400}
+@media (prefers-color-scheme:dark){.tel,.tel::before{border-color:#000;background:#000}
+  .tel{box-shadow:0 0 0 1px rgba(255,255,255,.12),0 28px 50px -24px rgba(0,0,0,.8)}
+  .tel-pannello{background:radial-gradient(110% 80% at 50% 95%,#563a26,#2f241c)}}
+@media (min-width:960px){
+  .anatomia{grid-template-columns:minmax(0,380px) minmax(0,1fr);align-items:stretch}
+  .anatomia .grid{grid-template-columns:1fr 1fr;align-content:start}
+  .tel-pannello{height:auto;min-height:440px;contain:size}
+  .tel{width:256px;height:620px;margin-top:44px}}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline:view()){
+  .tel{animation:tel-sale linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+  @keyframes tel-sale{from{transform:translateY(34px)}to{transform:none}}
+}}
 .appiglio{position:fixed;left:0;right:0;bottom:0;z-index:5;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
 .appiglio.su{transform:none}
 .appiglio .btn{width:100%}
@@ -350,11 +381,24 @@ form{max-width:40em}
 <section><div class="wrap">
   <h2>Cosa trova chi vi cerca</h2>
   <p class="sub">Per trattorie, agriturismi, cantine, botteghe, alberghi e laboratori: i posti dove un cliente apre il sito dal telefono, spesso in macchina, e vuole sapere tre cose in tre secondi.</p>
+  <div class="anatomia">
+  <figure class="tel-pannello" role="img" aria-label="Lo schema di un sito al telefono: il nome del posto e il paese, una foto, i tasti Chiama e Mappa, poi menù, orari e camere.">
+    <div class="tel" aria-hidden="true"><div class="tel-schermo">
+      <svg class="tel-foto" viewBox="0 0 240 132" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="tc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d3ae"/><stop offset="1" stop-color="#f7e6cf"/></linearGradient></defs><rect width="240" height="132" fill="url(#tc)"/><circle cx="178" cy="44" r="15" fill="#f9f0dd"/><path d="M0 82 C40 60 80 66 120 74 S200 58 240 70 V132 H0Z" fill="#a9b68a"/><path d="M0 100 C50 86 95 92 140 98 S210 90 240 94 V132 H0Z" fill="#7d9159"/><path d="M78 96 V78 l16 -12 16 12 V96Z" fill="#efe3cf"/><path d="M74 80 l20 -16 20 16" fill="none" stroke="#a3482a" stroke-width="4" stroke-linejoin="round"/><rect x="90" y="84" width="8" height="12" fill="#6b5a45"/><path d="M0 116 C60 106 120 112 240 108 V132 H0Z" fill="#5d7340"/></svg>
+      <div class="tel-corpo">
+        <p class="tel-nome">Il vostro posto</p>
+        <p class="tel-paese">Il vostro paese · aperto oggi</p>
+        <div class="tel-tasti"><span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.2 1.5 6 4.6 4.7 6.1a9 9 0 0 0 5.2 5.2l1.5-1.3 3.1 1.8-.8 2.4c-.2.5-.7.8-1.2.7C6.7 14.4 1.6 9.3 1.1 3.5c0-.5.3-1 .7-1.2Z"/></svg>Chiama</span><span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 0 0-5 5c0 3.6 5 9 5 9s5-5.4 5-9a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>Mappa</span></div>
+        <ul class="tel-righe"><li>Menù</li><li>Orari</li><li>Camere</li><li>Eventi</li><li>Dove siamo</li></ul>
+      </div>
+    </div></div>
+  </figure>
   <div class="grid">
     <div class="card"><h3>Chi siete e dove</h3><p>Appena si apre: il nome, il paese, e con un tocco si chiama o si apre la mappa. Niente scritte che girano, niente pagina che si rimpicciolisce.</p></div>
     <div class="card"><h3>Quello che cercano</h3><p>Menù, orari, camere, carta dei vini, eventi, con i vostri prezzi. In italiano e, se vi serve, in inglese.</p></div>
     <div class="card"><h3>Niente che copre la pagina</h3><p>Il sito non usa contatori né script di altri, e così non ha bisogno del banner dei cookie davanti a tutto.</p></div>
     <div class="card"><h3>Le modifiche con un messaggio</h3><p>Il menù nuovo, gli orari di agosto, una serata: me li mandate con un messaggio, anche la foto di un foglio scritto a mano, e li metto online io.</p></div>
+  </div>
   </div>
 </div></section>
 
