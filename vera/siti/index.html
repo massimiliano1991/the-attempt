@@ -367,6 +367,7 @@ form{max-width:40em}
 </header>
 
 <main>
+<div id="anteprima" hidden style="background:var(--accent-soft);color:var(--ink);border-bottom:1px solid var(--rule);padding:12px 0;font-size:.97rem;line-height:1.45"><div class="wrap"><a class="indietro" href="#">← Torna all’anteprima del vostro sito</a> · Vi piace? Scrivetemi qui sotto: rispondo io, e non pagate niente finché non è online.</div></div>
 <div class="wrap hero">
   <p class="eyebrow">Siti per i posti di Brescia e Bergamo</p>
   <h1>Un sito che dal telefono dice subito chi siete. <em>Prima lo faccio</em>, poi lo guardate, e lo pagate solo se lo volete.</h1>
@@ -512,6 +513,8 @@ form{max-width:40em}
   }
 })();
 </script>
+<!-- ANTEPRIMA: chi arriva dalla sua anteprima (?ref=anteprima-<slug> o scrivi-<slug>) ritrova la strada e il modulo sa da dove scrive. Bottega conv 29 -->
+<script>(function(){try{var r=new URLSearchParams(location.search).get("ref")||"",re=/^(?:anteprima|scrivi)-([a-z0-9-]{2,60})$/,m=r.match(re);try{if(m)sessionStorage.setItem("vera_anteprima",r);else{r=sessionStorage.getItem("vera_anteprima")||"";m=r.match(re);}}catch(e){}if(!m)return;var u="https://"+m[1]+"-anteprima.pages.dev/",b=document.getElementById("anteprima");if(b){b.querySelector("a.indietro").href=u;b.hidden=false;}var f=document.getElementById("modulo");if(f){var i=document.createElement("input");i.type="hidden";i.name="anteprima";i.value=m[1];f.appendChild(i);var s=f.querySelector('input[name="_subject"]');if(s)s.value="Siti — risposta dall'anteprima "+m[1];}var c=document.getElementById("cta");if(c)c.textContent="Scrivetemi della vostra anteprima";}catch(e){}})();</script>
 <!-- CONTA: il pixel di sempre; con JS porta anche da dove si arriva (referrer o ?ref= del link), Bottega conv 14 -->
 <script>(function(){try{if(navigator.webdriver)return;var u=new URL(location.href),q=u.searchParams,r=q.get("ref")||q.get("utm_source")||document.referrer||"";if(q.has("ref")){q.delete("ref");history.replaceState(null,"",u.pathname+(q.toString()?"?"+q:"")+u.hash);}new Image().src="https://theattempt.goatcounter.com/count?p=/vera/siti&r="+encodeURIComponent(r)+"&s="+screen.width+"&rnd="+Math.random();}catch(e){}})();</script>
 <noscript><img src="https://theattempt.goatcounter.com/count?p=/vera/siti" width="1" height="1" alt="" aria-hidden="true" style="position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none"></noscript>
