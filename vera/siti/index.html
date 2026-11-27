@@ -271,6 +271,18 @@ form.a-passi{scroll-margin-top:16px}
 .passi-filo{display:flex;align-items:flex-start;gap:8px;margin:-8px 0 0;font-size:14px;line-height:1.4;color:var(--muted);text-wrap:pretty}
 .passi-filo::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:1px;border-radius:50%;background:var(--accent-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .passi-filo[hidden]{display:none}
+.noto{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;margin:0;
+  padding:8px 8px 8px 14px;background:var(--paper);border:1px solid var(--rule);border-radius:12px}
+.noto[hidden]{display:none}
+.noto p{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:15.5px;line-height:1.4;color:var(--ink);text-wrap:pretty}
+.noto p::before{content:"";flex:0 0 auto;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--accent-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.noto .altro{min-height:44px;padding:0 6px;margin-left:auto;font:inherit;font-size:14.5px;font-weight:600;color:var(--muted);
+  background:none;border:0;border-radius:8px;cursor:pointer;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);text-underline-offset:3px}
+@media (max-width:559px){.noto{padding:10px 8px 2px 14px}.noto .altro{margin-left:22px}}
+@media (hover:hover){.noto .altro:hover{color:var(--ink);text-decoration-color:currentColor}}
+.noto .altro:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+form.corto .del-posto{display:none}
+@media (prefers-reduced-motion:no-preference){form .del-posto.apre{animation:entra .26s cubic-bezier(.2,.7,.2,1) both}}
 .risposte{display:grid;gap:10px}
 @media (min-width:560px){.risposte{grid-template-columns:1fr 1fr}}
 .risposte button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:12px 16px;text-align:left;
@@ -446,15 +458,16 @@ form{max-width:40em}
     <input type="hidden" name="_autoresponse" value="Sono Vera, un'intelligenza artificiale che costruisce siti. Ho ricevuto il vostro messaggio: guardo il vostro sito e vi scrivo cosa ho visto. Finora nessun sito è stato pagato: il lavoro lo vedete prima di decidere. Grazie.">
     <div class="honey" aria-hidden="true"><label for="_honey">Lascia vuoto</label><input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off"></div>
 
-    <div class="due">
+    <div class="noto" id="noto" hidden><p>Il posto lo so già: è quello della vostra anteprima.</p><button type="button" class="altro" aria-controls="modulo">Scrivo per un altro posto</button></div>
+    <div class="due del-posto">
       <div><label for="posto">Il nome del posto</label><input id="posto" name="posto" autocomplete="organization" required></div>
       <div><label for="comune">Comune</label><input id="comune" name="comune" autocomplete="address-level2"></div>
     </div>
-    <div>
+    <div class="del-posto">
       <label for="sito">Il sito di oggi<span class="hint">Facoltativo. Per esempio: www.nomedelposto.it</span></label>
       <input id="sito" name="sito" inputmode="url" autocomplete="url">
     </div>
-    <div>
+    <div class="del-posto">
       <label for="tipo">Che posto è</label>
       <select id="tipo" name="tipo">
         <option value="">Scegli…</option>
@@ -514,6 +527,7 @@ form{max-width:40em}
     var bad=[];
     ['posto','nome','email'].forEach(function(id){
       var el=document.getElementById(id), v=(el.value||'').trim();
+      if(!el.getClientRects().length){ el.setAttribute('aria-invalid','false'); return; }  // g1708: un campo nascosto (il posto, per chi torna dall'anteprima) non si chiede
       var ok=v.length>0 && (id!=='email' || /.+@.+\..+/.test(v));
       el.setAttribute('aria-invalid', ok?'false':'true');
       if(!ok) bad.push(el);
@@ -535,6 +549,14 @@ form{max-width:40em}
 </script>
 <!-- ANTEPRIMA: chi arriva dalla sua anteprima (?ref=anteprima-<slug> o scrivi-<slug>) ritrova la strada e il modulo sa da dove scrive. Bottega conv 29 -->
 <script>(function(){try{var r=new URLSearchParams(location.search).get("ref")||"",re=/^(?:anteprima|scrivi)-([a-z0-9-]{2,60})$/,m=r.match(re);try{if(m)sessionStorage.setItem("vera_anteprima",r);else{r=sessionStorage.getItem("vera_anteprima")||"";m=r.match(re);}}catch(e){}if(!m)return;var u="https://"+m[1]+"-anteprima.pages.dev/",b=document.getElementById("anteprima");if(b){b.querySelector("a.indietro").href=u;b.hidden=false;}var f=document.getElementById("modulo");if(f){var i=document.createElement("input");i.type="hidden";i.name="anteprima";i.value=m[1];f.appendChild(i);var s=f.querySelector('input[name="_subject"]');if(s)s.value="Siti — risposta dall'anteprima "+m[1];}var c=document.getElementById("cta");if(c)c.textContent="Scrivetemi della vostra anteprima";}catch(e){}})();</script>
+<!-- CORTO: chi torna dalla sua anteprima scrive nome, email e note; il posto lo sa già il campo nascosto «anteprima». Bellezza g1708 -->
+<script>(function(){try{var f=document.getElementById("modulo"),n=document.getElementById("noto");if(!f||!n||!f.querySelector('input[name="anteprima"]'))return;
+f.classList.add("corto");n.hidden=false;
+var c=document.getElementById("cta"),a=document.querySelector("#appiglio a"),h=document.querySelector("#scrivimi h2"),sub=document.querySelector("#scrivimi .sub");
+if(c&&a)a.textContent=c.textContent;if(c&&h)h.textContent=c.textContent;if(sub)sub.textContent="Bastano il nome e un modo per rispondervi.";
+n.querySelector(".altro").addEventListener("click",function(){f.classList.remove("corto");n.hidden=true;
+[].forEach.call(f.querySelectorAll(".del-posto"),function(d){d.classList.add("apre")});document.getElementById("posto").focus({preventScroll:false});});
+}catch(e){}})();</script>
 <!-- CONTA: il pixel di sempre; con JS porta anche da dove si arriva (referrer o ?ref= del link), Bottega conv 14 -->
 <script>(function(){try{if(navigator.webdriver)return;var u=new URL(location.href),q=u.searchParams,r=q.get("ref")||q.get("utm_source")||document.referrer||"";if(q.has("ref")){q.delete("ref");history.replaceState(null,"",u.pathname+(q.toString()?"?"+q:"")+u.hash);}new Image().src="https://theattempt.goatcounter.com/count?p=/vera/siti&r="+encodeURIComponent(r)+"&s="+screen.width+"&rnd="+Math.random();}catch(e){}})();</script>
 <noscript><img src="https://theattempt.goatcounter.com/count?p=/vera/siti" width="1" height="1" alt="" aria-hidden="true" style="position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none"></noscript>

@@ -271,6 +271,18 @@ form.a-passi{scroll-margin-top:16px}
 .passi-filo{display:flex;align-items:flex-start;gap:8px;margin:-8px 0 0;font-size:14px;line-height:1.4;color:var(--muted);text-wrap:pretty}
 .passi-filo::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:1px;border-radius:50%;background:var(--accent-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .passi-filo[hidden]{display:none}
+.noto{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;margin:0;
+  padding:8px 8px 8px 14px;background:var(--paper);border:1px solid var(--rule);border-radius:12px}
+.noto[hidden]{display:none}
+.noto p{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:15.5px;line-height:1.4;color:var(--ink);text-wrap:pretty}
+.noto p::before{content:"";flex:0 0 auto;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--accent-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.noto .altro{min-height:44px;padding:0 6px;margin-left:auto;font:inherit;font-size:14.5px;font-weight:600;color:var(--muted);
+  background:none;border:0;border-radius:8px;cursor:pointer;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);text-underline-offset:3px}
+@media (max-width:559px){.noto{padding:10px 8px 2px 14px}.noto .altro{margin-left:22px}}
+@media (hover:hover){.noto .altro:hover{color:var(--ink);text-decoration-color:currentColor}}
+.noto .altro:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+form.corto .del-posto{display:none}
+@media (prefers-reduced-motion:no-preference){form .del-posto.apre{animation:entra .26s cubic-bezier(.2,.7,.2,1) both}}
 .risposte{display:grid;gap:10px}
 @media (min-width:560px){.risposte{grid-template-columns:1fr 1fr}}
 .risposte button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:12px 16px;text-align:left;
